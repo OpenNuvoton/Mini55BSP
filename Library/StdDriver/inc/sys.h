@@ -147,10 +147,12 @@ extern "C"
 
 #define SYS_MFP_P24_GPIO    0x00000000UL /*!< P2_MFP pin 4 setting for GPIO */
 #define SYS_MFP_P24_PWM2    0x00001000UL /*!< P2_MFP pin 4 setting for PWM2 */
+#define SYS_MFP_P24_RX1     0x00001010UL /*!< P2_MFP pin 4 setting for RX1  */
 #define SYS_MFP_P24_Msk     0x00001010UL /*!< P2_MFP pin 4 mask             */
 
 #define SYS_MFP_P25_GPIO    0x00000000UL /*!< P2_MFP pin 5 setting for GPIO */
 #define SYS_MFP_P25_PWM3    0x00002000UL /*!< P2_MFP pin 5 setting for PWM3 */
+#define SYS_MFP_P25_TX1     0x00002020UL /*!< P2_MFP pin 5 setting for TX1  */
 #define SYS_MFP_P25_Msk     0x00002020UL /*!< P2_MFP pin 5 mask             */
 
 #define SYS_MFP_P26_GPIO    0x00000000UL /*!< P2_MFP pin 6 setting for GPIO */

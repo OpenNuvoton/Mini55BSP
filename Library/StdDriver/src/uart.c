@@ -160,7 +160,7 @@ void UART_Open(UART_T* uart, uint32_t u32baudrate)
         u8UartClkSrcSel = (CLK->CLKSEL1 & CLK_CLKSEL1_UART0SEL_Msk) >> CLK_CLKSEL1_UART0SEL_Pos;
         u32ClkDiv = ( (CLK->CLKDIV & CLK_CLKDIV_UART0DIV_Msk) >> CLK_CLKDIV_UART0DIV_Pos );
     } else if(uart == UART1) {
-        u8UartClkSrcSel = (CLK->CLKSEL1 & CLK_CLKSEL1_UART1SEL_Msk) >> CLK_CLKSEL1_UART0SEL_Pos;
+        u8UartClkSrcSel = (CLK->CLKSEL1 & CLK_CLKSEL1_UART1SEL_Msk) >> CLK_CLKSEL1_UART1SEL_Pos;
         u32ClkDiv = ( (CLK->CLKDIV & CLK_CLKDIV_UART1DIV_Msk) >> CLK_CLKDIV_UART1DIV_Pos );
     }
     uart->FUNCSEL = UART_FUNC_SEL_UART;
