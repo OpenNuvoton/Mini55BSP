@@ -5,7 +5,7 @@ lst/
 #For IAR
 Debug/
 Release/
-setting/
+settings/
 
 #For OSX
 .DS_Store
@@ -15,6 +15,7 @@ setting/
 *.dep
 *.bak
 *.uvopt
+*.uvgui.*
 *.txt
 !Library/CMSIS/DAP/Firmware/Examples/LPC-Link-II/Abstract.txt
 !Library/CMSIS/DAP/Firmware/Examples/XMC4200/Abstract.txt
