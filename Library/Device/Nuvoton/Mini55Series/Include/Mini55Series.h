@@ -8,7 +8,7 @@
  *           bits definitions and memory mapping for NuMicro Mini55 series MCU.
  *
  * @note
- * Copyright (C) 2014~2015 Nuvoton Technology Corp. All rights reserved.
+ * Copyright (C) 2014~2017 Nuvoton Technology Corp. All rights reserved.
  *****************************************************************************/
 /**
    \mainpage NuMicro Mini55 Driver Reference Guide
@@ -47,66 +47,8 @@
    *
    * <b>Copyright Notice</b>
    *
-   * Copyright (C) 2015 Nuvoton Technology Corp. All rights reserved.
+   * Copyright (C) 2017 Nuvoton Technology Corp. All rights reserved.
    */
-/**
-  * \page pg1 NuMicro Mini55 BSP Directory Structure
-  * Please refer to Readme.pdf under BSP root directory for the BSP directory structure
-  *
-  * \page pg2 Revision History
-  *
-  * <b>Revision 3.01.000</b>
-  * \li Updated TIMER_T structure, and moved CCAPCTL and CCAP[3] to a new structure named TIMER_AC_T in Mini55Series.h.
-  * \li Updated the bit field name of PWM_CTL register from CMPINV[1~5] to PINV[1~5] in Mini55Series.h.
-  * \li Updated mask and position of GPIO bit field to be consistent with Mini55 Technical Reference Manual in Mini55Series.h.
-  * \li Updated UART_INTSTS_MODENIF_Pos and UART_INTSTS_MODENIF_Msk to UART_INTSTS_MODEMIF_Pos and UART_INTSTS_MODEMIF_Msk in Mini55Series.h.
-  * \li Updated CLK_EnableXtalRC() to support run time change of XTLEN(CLK_PWRCTL[1:0]) in clk.c.
-  * \li Updated PWM_GetADCTriggerFlag() to report a flag of each trigger soure instead of a combinational result.
-  * \li Updated SPI_Close() so it does not disable SPI peripheral clock in spi.c.
-  * \li Updated SYS_EnableBOD() to support all the eight BOD levels in sys.c.
-  * \li Updated TIMER_Delay() and replaced the variable type used for calculation from ¡§float¡¨ to ¡§long long¡¨ to get more accurate value in timer.c.
-  * \li Removed DID related functions and macros in fmc.[ch].
-  * \li Removed CHIP_RST and CPU_RST definition, but called SYS_ResetCPU() and SYS_ResetChip() directly in sys.h.
-  * \li Removed SYS_BODCTL_BOD_DISABLE definition in sys.h.
-  * \li Fixed ACMP_SET_NEG_SRC() syntax error in acmp.h.
-  * \li Fixed ACMP_CRV_SEL() implementation error, and updated incorrect mask name to fix the compilation error in acmp.h.
-  * \li Fixed ACMP_ENABLE_RISING_EDGE_TRIGGER() implementation error that  disables rising edge trigger in acmp.h.
-  * \li Fixed CLK_SysTickDelay() bug that delay time is sometimes incorrect in clk.c.
-  * \li Fixed CLK_CLKSEL1_UART1SEL_HIRC, UART1_MODULE definition error in clk.h.
-  * \li Fixed GPIO_DISABLE_DOUT_MASK() and GPIO_ENABLE_DOUT_MASK() error in gpio.h.
-  * \li Fixed I2C_GetBusClockFreq() bug that always gets divider from I2C0 in i2c.c.
-  * \li Fixed I2C_CLEAR_WAKEUP_FLAG() bug that may clear more than one bit in i2c.h.
-  * \li Fixed I2C_WAIT_READY() bug that polls a wrong bit in i2c.h.
-  * \li Fixed PWM_FB1_ACMP0 definition error in pwm.h.
-  * \li Fixed PWM_ENABLE_OUTPUT_INVERTER() bug that sets incorrect bit field in pwm.h.
-  * \li Fixed PWM_EnablePeriodInt(), PWM_DisableCenterInt(), PWM_ClearCenterIntFlag(), and PWM_GetCenterIntFlag() implementation errors in pwm.c.
-  * \li Fixed SPI_EnableAutoSS() bug that old settings are not cleared before updating new value in spi.c.
-  * \li Fixed SPI_SetBusClock() bus clock calculation error in spi.c.
-  * \li Fixed SPI_SET_xSB_FIRST() implementation error in spi.h.
-  * \li Fixed SYS_IsRegLocked() return value inverted bug in sys.c.
-  * \li Fixed TIMER_Open() and TIMER_Delay() time-out calculation if timer clock is faster than 0x1FFFFFF Hz in timer.c.
-  * \li Fixed TIMER_EnableCaptureDebounce() and TIMER_DisableCaptureDebounce() implementation errors in timer.h.
-  * \li Fixed TIMER_CAPTURE_RISING_* definition error in timer.h.
-  * \li Fixed UART_ClearIntFlag() bug that clears more flags than desired in uart.c.
-  * \li Fixed UART_Open(), UART_SelectIrDAMode(), and UART_SetLine_Config() baudrate calculation bugs in uart.c.
-  * \li Fixed UART_Write() bug that data is not actually sent out in uart.c.
-  * \li Fixed UART_CLEAR_RTS() implementation error in uart.h.
-  * \li Fixed sample code bug that XTL is enabled before configuring multi-function pins.
-  * \li Fixed ACMP_TriggerTimerCapture sample bug that calculates input frequency based on incorrect frequency.
-  * \li Fixed UART_RS485 sample MODEM register and address setting error.
-  * \li Added ADC_SeqModeEnable() and ADC_SeqModeTriggerSrc() APIs in adc.c.
-  * \li Added CLK_EnableSysTick() and CLK_DisableSysTick() to control SysTick and select SysTick clock source in clk.c.
-  * \li Added CLK_CLKDIV_UART0(), CLK_CLKDIV_UART1(), and CLK_CLKDIV_HCLK() macro definitions in clk.h.
-  * \li Added SPI_GET_TX_FIFO_FULL_FLAG() macro in spi.h.
-  * \li Added PWM_EnableRiseInt(), PWM_DisableRiseInt(), PWM_ClearRiseIntFlag(), PWM_GetRiseIntFlag(), PWM_GetCenterIntFlag(), and PWM_ClearCenterIntFlag() functions in pwm.c.
-  * \li Added SYS_GET_IRCTRIM_INT_FLAG() and SYS_CLEAR_IRCTRIM_INT_FLAG()  macro definitions in sys.h.
-  * \li Added SYS_EnableIRCTrim() and SYS_DisableIRCTrim() functions in sys.c.
-  * \li Added CLK_SwtichHCLK, I2C_FIFO_EEPROM, Timer_Wakeup, SPI_FIFO_FLASH, and SYS_TrimIRC samples.
-  *
-  * <b>Revision 3.00.000</b>
-  * \li Initial release.
-*/
-
 
 #ifndef __MINI55SERIES_H__
 #define __MINI55SERIES_H__
@@ -7287,4 +7229,4 @@ typedef volatile unsigned long  vu32;       ///< Define 32-bit unsigned volatile
 
 #endif  // __MINI55SERIES_H__
 
-/*** (C) COPYRIGHT 2015 Nuvoton Technology Corp. ***/
+/*** (C) COPYRIGHT 2017 Nuvoton Technology Corp. ***/
