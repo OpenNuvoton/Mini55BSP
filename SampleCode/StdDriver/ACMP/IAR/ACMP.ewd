@@ -45,7 +45,7 @@
         </option>
         <option>
           <name>MemFile</name>
-          <state>$TOOLKIT_DIR$\CONFIG\debugger\Nuvoton\iomini51de.ddf</state>
+          <state>$TOOLKIT_DIR$\CONFIG\debugger\Nuvoton\iomini55de.ddf</state>
         </option>
         <option>
           <name>RunToEnable</name>
@@ -117,7 +117,7 @@
         </option>
         <option>
           <name>FlashLoadersV3</name>
-          <state>$TOOLKIT_DIR$\config\flashloader\Nuvoton\Mini51_APROM.board</state>
+          <state>$TOOLKIT_DIR$\config\flashloader\Nuvoton\Mini55_APROM.board</state>
         </option>
         <option>
           <name>OCImagesSuppressCheck1</name>
