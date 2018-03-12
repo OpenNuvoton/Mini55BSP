@@ -90,7 +90,8 @@ int main (void)
     P15 = 1;
     GPIO_SetMode(P1, BIT5, GPIO_MODE_OUTPUT);
 
-    while (1) {
+    while (1)
+    {
         P15 ^= 1;
         CLK_SysTickDelay(250000);
     }

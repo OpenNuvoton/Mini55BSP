@@ -25,12 +25,15 @@
 void GPIO01_IRQHandler(void)
 {
     /* To check if P1.5 interrupt occurred */
-    if (P1->INTSRC & BIT5) {
+    if (P1->INTSRC & BIT5)
+    {
         P1->INTSRC = BIT5;
         P30 = P30 ^ 1;
         printf("P1.5 INT occurred. \n");
 
-    } else {
+    }
+    else
+    {
         /* Un-expected interrupt. Just clear all PORT0, PORT1 interrupts */
         P0->INTSRC = P0->INTSRC;
         P1->INTSRC = P1->INTSRC;
@@ -51,11 +54,14 @@ void GPIO01_IRQHandler(void)
 void GPIO234_IRQHandler(void)
 {
     /* To check if P2.2 interrupt occurred */
-    if (P2->INTSRC & BIT2) {
+    if (P2->INTSRC & BIT2)
+    {
         P2->INTSRC = BIT2;
         P30 = P30 ^ 1;
         printf("P2.2 INT occurred. \n");
-    } else {
+    }
+    else
+    {
         /* Un-expected interrupt. Just clear all PORT2, PORT3 and PORT4 interrupts */
         P2->INTSRC = P2->INTSRC;
         P3->INTSRC = P3->INTSRC;
@@ -195,18 +201,23 @@ int main (void)
 
     /* Use Pin Data Input/Output Control to pull specified I/O or get I/O pin status */
     P10 = 0;
-    if (P34 != 0) {
+    if (P34 != 0)
+    {
         i32Err = 1;
     }
 
     P10 = 1;
-    if (P34 != 1) {
+    if (P34 != 1)
+    {
         i32Err = 1;
     }
 
-    if ( i32Err ) {
+    if ( i32Err )
+    {
         printf("  [FAIL] --- Please make sure P1.0 and P3.4 are connected. \n");
-    } else {
+    }
+    else
+    {
         printf("  [OK] \n");
     }
 

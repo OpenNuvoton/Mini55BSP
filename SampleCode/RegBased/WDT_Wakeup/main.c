@@ -15,7 +15,8 @@ void WDT_IRQHandler(void)
 {
 
     // Check WDT wake up flag
-    if(WDT->CTL & WDT_CTL_WKF_Msk) {
+    if(WDT->CTL & WDT_CTL_WKF_Msk)
+    {
         printf("Wake up by WDT\n");
     }
 
@@ -30,7 +31,8 @@ void SYS_Init(void)
     /*---------------------------------------------------------------------------------------------------------*/
 
     /* Unlock protected registers */
-    while(SYS->REGLCTL != 1) {
+    while(SYS->REGLCTL != 1)
+    {
         SYS->REGLCTL = 0x59;
         SYS->REGLCTL = 0x16;
         SYS->REGLCTL = 0x88;
@@ -89,7 +91,8 @@ int32_t main (void)
     printf("\nThis sample code demonstrate using WDT to wake system up from power down mode\n");
 
     // WDT register is locked, so it is necessary to unlock protect register before configure WDT
-    while(SYS->REGLCTL != 1) {
+    while(SYS->REGLCTL != 1)
+    {
         SYS->REGLCTL = 0x59;
         SYS->REGLCTL = 0x16;
         SYS->REGLCTL = 0x88;
@@ -100,7 +103,8 @@ int32_t main (void)
 
     NVIC_EnableIRQ(WDT_IRQn);
 
-    while(1) {
+    while(1)
+    {
         // Wait 'til UART FIFO empty to get a cleaner console out
         while(!(UART0->FIFOSTS & UART_FIFOSTS_TXEMPTYF_Msk));
         // Enable sleep deep mode

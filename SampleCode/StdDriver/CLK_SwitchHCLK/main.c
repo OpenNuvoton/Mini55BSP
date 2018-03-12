@@ -103,7 +103,8 @@ int32_t main (void)
     /* Unlock protected registers */
     SYS_UnlockReg();
 
-    while(1) {
+    while(1)
+    {
         printf("Switch HCLK clock source to HIRC\n");
         /* Switch HCLK clock source to HIRC */
         CLK_SetHCLK(CLK_CLKSEL0_HCLKSEL_HIRC,CLK_CLKDIV_HCLK(1));

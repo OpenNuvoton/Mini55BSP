@@ -53,7 +53,8 @@ void SYS_Init(void)
     /*---------------------------------------------------------------------------------------------------------*/
 
     /* Unlock protected registers */
-    while(SYS->REGLCTL != SYS_REGLCTL_REGWRPROT_Msk) {
+    while(SYS->REGLCTL != SYS_REGLCTL_REGWRPROT_Msk)
+    {
         SYS->REGLCTL = 0x59;
         SYS->REGLCTL = 0x16;
         SYS->REGLCTL = 0x88;
@@ -67,7 +68,8 @@ void SYS_Init(void)
 
     /* Waiting for clock ready */
     i32TimeOutCnt = __HSI / 200; /* About 5ms */
-    while((CLK->STATUS & CLK_STATUS_HIRCSTB_Msk) != CLK_STATUS_HIRCSTB_Msk) {
+    while((CLK->STATUS & CLK_STATUS_HIRCSTB_Msk) != CLK_STATUS_HIRCSTB_Msk)
+    {
         if(i32TimeOutCnt-- <= 0)
             break;
     }
@@ -134,20 +136,24 @@ void SpiLoopbackTest(void)
     SPI->TX =  0;
 
     u32Err = 0;
-    for(u32TestCount=0; u32TestCount<100; u32TestCount++) {
+    for(u32TestCount=0; u32TestCount<100; u32TestCount++)
+    {
         /* set the source data and clear the destination buffer */
-        for(u32DataCount=0; u32DataCount<TEST_COUNT; u32DataCount++) {
+        for(u32DataCount=0; u32DataCount<TEST_COUNT; u32DataCount++)
+        {
             g_au32SourceData[u32DataCount] = u32DataCount;
             g_au32DestinationData[u32DataCount] = 0;
         }
 
         u32DataCount=0;
 
-        if((u32TestCount&0x1FF) == 0) {
+        if((u32TestCount&0x1FF) == 0)
+        {
             putchar('.');
         }
 
-        while(1) {
+        while(1)
+        {
             /* Set data to TX buffer */
             SPI->TX = g_au32SourceData[u32DataCount];
 
@@ -164,7 +170,8 @@ void SpiLoopbackTest(void)
         }
 
         /*  Check the received data */
-        for(u32DataCount=0; u32DataCount<TEST_COUNT; u32DataCount++) {
+        for(u32DataCount=0; u32DataCount<TEST_COUNT; u32DataCount++)
+        {
             if(g_au32DestinationData[u32DataCount]!=g_au32SourceData[u32DataCount])
                 u32Err = 1;
         }

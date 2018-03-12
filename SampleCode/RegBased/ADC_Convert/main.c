@@ -31,7 +31,8 @@ void SYS_Init(void)
     /*---------------------------------------------------------------------------------------------------------*/
 
     /* Unlock protected registers */
-    while(SYS->REGLCTL != 1) {
+    while(SYS->REGLCTL != 1)
+    {
         SYS->REGLCTL = 0x59;
         SYS->REGLCTL = 0x16;
         SYS->REGLCTL = 0x88;
@@ -105,9 +106,11 @@ int32_t main (void)
     // Enable ADC interrupt
     NVIC_EnableIRQ(ADC_IRQn);
 
-    while(1) {
+    while(1)
+    {
         // Check if ADC is busy
-        if(!(ADC->STATUS & ADC_STATUS_BUSY_Msk)) {
+        if(!(ADC->STATUS & ADC_STATUS_BUSY_Msk))
+        {
             // Trigger ADC conversion
             ADC->CTL |= ADC_CTL_SWTRG_Msk;
         }

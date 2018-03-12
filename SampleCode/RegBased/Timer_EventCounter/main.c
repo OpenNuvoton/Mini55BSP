@@ -27,7 +27,8 @@ void SYS_Init(void)
     /*---------------------------------------------------------------------------------------------------------*/
 
     /* Unlock protected registers */
-    while(SYS->REGLCTL != 1) {
+    while(SYS->REGLCTL != 1)
+    {
         SYS->REGLCTL = 0x59;
         SYS->REGLCTL = 0x16;
         SYS->REGLCTL = 0x88;
@@ -109,7 +110,8 @@ int main(void)
     NVIC_EnableIRQ(TMR0_IRQn);
 
 
-    for(i = 0; i < 1000; i++) {
+    for(i = 0; i < 1000; i++)
+    {
         P32 = 0;  // low
         P32 = 1;  // high
     }

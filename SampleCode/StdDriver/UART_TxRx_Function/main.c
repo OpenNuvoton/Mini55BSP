@@ -146,22 +146,26 @@ void UART_TEST_HANDLE()
     uint8_t u8InChar=0xFF;
     uint32_t u32IntSts= UART0->INTSTS;
 
-    if(u32IntSts & UART_INTSTS_RDAINT_Msk) {
+    if(u32IntSts & UART_INTSTS_RDAINT_Msk)
+    {
         printf("\nInput:");
 
         /* Get all the input characters */
-        while(UART_IS_RX_READY(UART0)) {
+        while(UART_IS_RX_READY(UART0))
+        {
             /* Get the character from UART Buffer */
             u8InChar = UART_READ(UART0);           /* Rx trigger level is 1 byte*/
 
             printf("%c ", u8InChar);
 
-            if(u8InChar == '0') {
+            if(u8InChar == '0')
+            {
                 g_bWait = FALSE;
             }
 
             /* Check if buffer full */
-            if(g_u32comRbytes < RXBUFSIZE) {
+            if(g_u32comRbytes < RXBUFSIZE)
+            {
                 /* Enqueue the character */
                 g_u8RecData[g_u32comRtail] = u8InChar;
                 g_u32comRtail = (g_u32comRtail == (RXBUFSIZE-1)) ? 0 : (g_u32comRtail+1);
@@ -171,10 +175,12 @@ void UART_TEST_HANDLE()
         printf("\nTransmission Test:");
     }
 
-    if(u32IntSts & UART_INTSTS_THREINT_Msk) {
+    if(u32IntSts & UART_INTSTS_THREINT_Msk)
+    {
         uint16_t tmp;
         tmp = g_u32comRtail;
-        if(g_u32comRhead != tmp) {
+        if(g_u32comRhead != tmp)
+        {
             u8InChar = g_u8RecData[g_u32comRhead];
             UART_WRITE(UART0,u8InChar);
             g_u32comRhead = (g_u32comRhead == (RXBUFSIZE-1)) ? 0 : (g_u32comRhead+1);

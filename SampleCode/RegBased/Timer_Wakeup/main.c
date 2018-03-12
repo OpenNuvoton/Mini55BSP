@@ -27,7 +27,8 @@ void SYS_Init(void)
     /*---------------------------------------------------------------------------------------------------------*/
 
     /* Unlock protected registers */
-    while(SYS->REGLCTL != 1) {
+    while(SYS->REGLCTL != 1)
+    {
         SYS->REGLCTL = 0x59;
         SYS->REGLCTL = 0x16;
         SYS->REGLCTL = 0x88;
@@ -92,13 +93,15 @@ int main(void)
     NVIC_EnableIRQ(TMR0_IRQn);
 
     /* Unlock protected registers to control PWRCTL */
-    while(SYS->REGLCTL != 1) {
+    while(SYS->REGLCTL != 1)
+    {
         SYS->REGLCTL = 0x59;
         SYS->REGLCTL = 0x16;
         SYS->REGLCTL = 0x88;
     }
 
-    while(1) {
+    while(1)
+    {
         printf("Sleep 1 second\n");
         // Wait 'til UART FIFO empty to get a cleaner console out
         while(!(UART0->FIFOSTS & UART_FIFOSTS_TXEMPTYF_Msk));

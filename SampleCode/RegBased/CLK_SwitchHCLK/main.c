@@ -18,7 +18,8 @@ void SYS_Init(void)
     /*---------------------------------------------------------------------------------------------------------*/
 
     /* Unlock protected registers */
-    while(SYS->REGLCTL != 1) {
+    while(SYS->REGLCTL != 1)
+    {
         SYS->REGLCTL = 0x59;
         SYS->REGLCTL = 0x16;
         SYS->REGLCTL = 0x88;
@@ -95,13 +96,15 @@ int main (void)
     CLK->CLKSEL2 = (CLK->CLKSEL2 & (~CLK_CLKSEL2_FDIVSEL_Msk)) | CLK_CLKSEL2_FDIVSEL_HCLK;
 
     /* Unlock protected registers */
-    while(SYS->REGLCTL != SYS_REGLCTL_REGPROTDIS_Msk) {
+    while(SYS->REGLCTL != SYS_REGLCTL_REGPROTDIS_Msk)
+    {
         SYS->REGLCTL = 0x59;
         SYS->REGLCTL = 0x16;
         SYS->REGLCTL = 0x88;
     }
 
-    while(1) {
+    while(1)
+    {
         printf("Switch HCLK clock source to HIRC\n");
         /* Switch HCLK clock source to HIRC */
         CLK->CLKSEL0 = (CLK->CLKSEL0 & ~CLK_CLKSEL0_HCLKSEL_Msk) | CLK_CLKSEL0_HCLKSEL_HIRC;
