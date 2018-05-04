@@ -1,4 +1,4 @@
-/******************************************************************************
+/**************************************************************************//**
  * @file     main.c
  * @version  V0.10
  * $Revision: 2 $
@@ -40,7 +40,7 @@ void SYS_Init(void)
 
     /* Select IP clock source */
     CLK_SetModuleClock(UART0_MODULE,CLK_CLKSEL1_UART0SEL_HIRC,CLK_CLKDIV_UART(1));
-    CLK_SetModuleClock(I2C_MODULE, 0 , 0);
+    CLK_SetModuleClock(I2C_MODULE, 0, 0);
 
     /* Update System Core Clock */
     /* User can use SystemCoreClockUpdate() to calculate PllClock, SystemCoreClock and CycylesPerUs automatically. */
