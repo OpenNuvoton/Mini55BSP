@@ -11,7 +11,7 @@
  ******************************************************************************/
 #include <stdio.h>
 #include "Mini55series.h"
-#include "GPIO.h"
+
 
 /**
  * @brief       Port0/Port1 IRQ
@@ -24,6 +24,7 @@
  */
 void GPIO01_IRQHandler(void)
 {
+    uint32_t volatile reg;
     /* To check if P1.5 interrupt occurred */
     if (P1->INTSRC & BIT5)
     {
@@ -35,8 +36,10 @@ void GPIO01_IRQHandler(void)
     else
     {
         /* Un-expected interrupt. Just clear all PORT0, PORT1 interrupts */
-        P0->INTSRC = P0->INTSRC;
-        P1->INTSRC = P1->INTSRC;
+        reg = P0->INTSRC;
+        P0->INTSRC = reg;
+        reg = P1->INTSRC;
+        P1->INTSRC = reg;
         printf("Un-expected interrupts. \n");
     }
 }
@@ -53,6 +56,7 @@ void GPIO01_IRQHandler(void)
  */
 void GPIO234_IRQHandler(void)
 {
+    uint32_t volatile reg;
     /* To check if P2.2 interrupt occurred */
     if (P2->INTSRC & BIT2)
     {
@@ -63,9 +67,12 @@ void GPIO234_IRQHandler(void)
     else
     {
         /* Un-expected interrupt. Just clear all PORT2, PORT3 and PORT4 interrupts */
-        P2->INTSRC = P2->INTSRC;
-        P3->INTSRC = P3->INTSRC;
-        P4->INTSRC = P4->INTSRC;
+        reg = P2->INTSRC;
+        P2->INTSRC = reg;
+        reg = P3->INTSRC;
+        P3->INTSRC = reg;
+        reg = P4->INTSRC;
+        P4->INTSRC = reg;
         printf("Un-expected interrupts. \n");
     }
 }
@@ -185,8 +192,8 @@ int main (void)
     getchar();
 
     /* Configure P1.0 as Output mode and P3.4 as Input mode then close it */
-    P1->MODE = P1->MODE & ~0x3 | GPIO_MODE_OUTPUT;
-    P3->MODE = P3->MODE & ~0x300 | (GPIO_MODE_INPUT << 8);
+    P1->MODE = (P1->MODE & ~0x3) | GPIO_MODE_OUTPUT;
+    P3->MODE = (P3->MODE & ~0x300) | (GPIO_MODE_INPUT << 8);
 
     i32Err = 0;
     printf("  GPIO Output/Input test ...... \n");
@@ -214,8 +221,8 @@ int main (void)
     }
 
     /* Configure P1.0 and P3.4 to default Quasi-bidirectional mode */
-    P1->MODE = P1->MODE & ~0x3 | GPIO_MODE_QUASI;
-    P3->MODE = P3->MODE & ~0x300 | (GPIO_MODE_QUASI << 8);
+    P1->MODE = (P1->MODE & ~0x3) | GPIO_MODE_QUASI;
+    P3->MODE = (P3->MODE & ~0x300) | (GPIO_MODE_QUASI << 8);
 
     /*-----------------------------------------------------------------------------------------------------*/
     /* GPIO Interrupt Function Test                                                                        */
@@ -223,28 +230,28 @@ int main (void)
     printf("\n  P15, P22, P32(INT0) and P52(INT1) are used to test interrupt\n  and control LEDs(P30)\n");
 
     /*Configure P30 for LED control */
-    P3->MODE = P3->MODE & ~0x3 | GPIO_MODE_OUTPUT;
+    P3->MODE = (P3->MODE & ~0x3) | GPIO_MODE_OUTPUT;
 
     /* Configure P1.5 as Input mode and enable interrupt by rising edge trigger */
-    P1->MODE = P1->MODE & ~0xC00 | (GPIO_MODE_INPUT << 10);
+    P1->MODE = (P1->MODE & ~0xC00) | (GPIO_MODE_INPUT << 10);
     P1->INTTYPE &= ~0x20;
     P1->INTEN |= 0x200000;
     NVIC_EnableIRQ(GPIO01_IRQn);
 
     /*  Configure P2.2 as Quasi-bidirectional mode and enable interrupt by falling edge trigger */
-    P2->MODE = P2->MODE & ~0x30 | (GPIO_MODE_QUASI << 4);
+    P2->MODE = (P2->MODE & ~0x30) | (GPIO_MODE_QUASI << 4);
     P2->INTTYPE &= ~0x4;
     P2->INTEN |= 0x04;
     NVIC_EnableIRQ(GPIO234_IRQn);
 
     /* Configure P3.2 as EINT0 pin and enable interrupt by falling edge trigger */
-    P3->MODE = P3->MODE & ~0x30 | (GPIO_MODE_INPUT << 4);
+    P3->MODE = (P3->MODE & ~0x30) | (GPIO_MODE_INPUT << 4);
     P3->INTTYPE &= ~0x4;
     P3->INTEN |= 0x04;
     NVIC_EnableIRQ(EINT0_IRQn);
 
     /* Configure P5.2 as EINT1 pin and enable interrupt by rising and falling edge trigger */
-    P5->MODE = P5->MODE & ~0x30 | (GPIO_MODE_INPUT << 4);
+    P5->MODE = (P5->MODE & ~0x30) | (GPIO_MODE_INPUT << 4);
     P5->INTTYPE &= ~0x4;
     P5->INTEN |= 0x040004;
     NVIC_EnableIRQ(EINT1_IRQn);

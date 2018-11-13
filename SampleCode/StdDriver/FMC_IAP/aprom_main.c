@@ -22,6 +22,9 @@ typedef void (FUNC_PTR)(void);
 
 extern uint32_t  loaderImage1Base, loaderImage1Limit;
 
+FUNC_PTR    *func;
+uint32_t    sp;
+
 
 void SYS_Init(void)
 {
@@ -165,7 +168,7 @@ int main()
 
     printf("\n\n");
     printf("+----------------------------------------+\n");
-    printf("|     MINI55 FMC IAP Sample Code        |\n");
+    printf("|     MINI55 FMC IAP Sample Code         |\n");
     printf("|           [APROM code]                 |\n");
     printf("+----------------------------------------+\n");
 
@@ -228,8 +231,17 @@ int main()
             break;
 
         case '1':
+            func = (FUNC_PTR *)FMC_Read(FMC_LDROM_BASE + 4);
+            sp = FMC_Read(FMC_LDROM_BASE);
+
             printf("\n\nChange VECMAP and branch to LDROM...\n");
             while (!(UART0->FIFOSTS & UART_FIFOSTS_TXEMPTY_Msk));
+
+#if defined (__GNUC__) && !defined(__ARMCC_VERSION) /* for GNU C compiler */
+            asm("msr msp, %0" : : "r" (sp));
+#else
+            __set_SP(sp);
+#endif
 
             /*  NOTE!
              *     Before change VECMAP, user MUST disable all interrupts.
@@ -242,8 +254,6 @@ int main()
             FMC->ISPTRG = FMC_ISPTRG_ISPGO_Msk;
             while (FMC->ISPTRG & FMC_ISPTRG_ISPGO_Msk) ;
 
-            func = (FUNC_PTR *)*(uint32_t *)(FMC_LDROM_BASE + 4);
-            __set_SP(*(uint32_t *)FMC_LDROM_BASE);
             func();
             break;
 

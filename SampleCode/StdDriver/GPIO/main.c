@@ -24,6 +24,7 @@
  */
 void GPIO01_IRQHandler(void)
 {
+    uint32_t reg;
     /* To check if P1.5 interrupt occurred */
     if (P1->INTSRC & BIT5)
     {
@@ -35,8 +36,10 @@ void GPIO01_IRQHandler(void)
     else
     {
         /* Un-expected interrupt. Just clear all PORT0, PORT1 interrupts */
-        P0->INTSRC = P0->INTSRC;
-        P1->INTSRC = P1->INTSRC;
+        reg = P0->INTSRC;
+        P0->INTSRC = reg;
+        reg = P1->INTSRC;
+        P1->INTSRC = reg;
         printf("Un-expected interrupts. \n");
     }
 }
@@ -53,6 +56,7 @@ void GPIO01_IRQHandler(void)
  */
 void GPIO234_IRQHandler(void)
 {
+    uint32_t reg;
     /* To check if P2.2 interrupt occurred */
     if (P2->INTSRC & BIT2)
     {
@@ -63,9 +67,12 @@ void GPIO234_IRQHandler(void)
     else
     {
         /* Un-expected interrupt. Just clear all PORT2, PORT3 and PORT4 interrupts */
-        P2->INTSRC = P2->INTSRC;
-        P3->INTSRC = P3->INTSRC;
-        P4->INTSRC = P4->INTSRC;
+        reg = P2->INTSRC;
+        P2->INTSRC = reg;
+        reg = P3->INTSRC;
+        P3->INTSRC = reg;
+        reg = P4->INTSRC;
+        P4->INTSRC = reg;
         printf("Un-expected interrupts. \n");
     }
 }

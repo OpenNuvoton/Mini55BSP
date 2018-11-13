@@ -756,7 +756,7 @@
         </option>
         <option>
           <name>IlinkOverrideProgramEntryLabel</name>
-          <state>1</state>
+          <state>0</state>
         </option>
         <option>
           <name>IlinkProgramEntryLabelSelect</name>
@@ -764,7 +764,7 @@
         </option>
         <option>
           <name>IlinkProgramEntryLabel</name>
-          <state>Reset_Handler</state>
+          <state>__iar_program_start</state>
         </option>
         <option>
           <name>DoFill</name>
@@ -939,9 +939,6 @@
   <group>
     <name>CMSIS</name>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\Library\Device\Nuvoton\Mini55Series\Source\IAR\startup_Mini55Series.s</name>
-    </file>
-    <file>
       <name>$PROJ_DIR$\..\..\..\..\Library\Device\Nuvoton\Mini55Series\Source\system_Mini55Series.c</name>
     </file>
   </group>
@@ -958,9 +955,6 @@
     <name>User</name>
     <file>
       <name>$PROJ_DIR$\..\LDROM_main.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\ldrom_retarget.c</name>
     </file>
   </group>
 </project>
