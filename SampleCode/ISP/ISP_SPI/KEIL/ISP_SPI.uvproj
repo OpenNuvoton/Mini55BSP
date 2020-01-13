@@ -149,7 +149,7 @@
             <RestoreSysVw>1</RestoreSysVw>
           </Target>
           <RunDebugAfterBuild>0</RunDebugAfterBuild>
-          <TargetSelection>19</TargetSelection>
+          <TargetSelection>20</TargetSelection>
           <SimDlls>
             <CpuDll></CpuDll>
             <CpuDllArguments></CpuDllArguments>
@@ -375,7 +375,7 @@
             <v6Rtti>0</v6Rtti>
             <VariousControls>
               <MiscControls></MiscControls>
-              <Define>TARGET_Mini51</Define>
+              <Define>TARGET_Mini55</Define>
               <Undefine></Undefine>
               <IncludePath>..\..\..\..\Library\CMSIS\Include;..\..\..\..\Library\StdDriver\inc;..\..\..\..\Library\Device\Nuvoton\Mini55Series\Include</IncludePath>
             </VariousControls>
@@ -455,6 +455,11 @@
               <FileName>targetdev.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\targetdev.c</FilePath>
+            </File>
+            <File>
+              <FileName>spi_transfer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\spi_transfer.c</FilePath>
             </File>
           </Files>
         </Group>
