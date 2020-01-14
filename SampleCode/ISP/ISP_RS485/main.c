@@ -107,7 +107,8 @@ _ISP:
             nRTSPin = TRANSMIT_MODE;
             PutString();
 
-            while ((UART0->FIFOSTS & UART_FIFOSTS_RXEMPTY_Msk) == 0);
+            while ((UART0->FIFOSTS & UART_FIFOSTS_TXEMPTY_Msk) == 0);
+            while ((UART0->FIFOSTS & UART_FIFOSTS_TXEMPTYF_Msk) == 0);
 
             nRTSPin = REVEIVE_MODE;
             NVIC_EnableIRQ(UART0_IRQn);
