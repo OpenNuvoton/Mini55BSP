@@ -11,19 +11,7 @@
 #include "spi_transfer.h"
 #include "isp_user.h"
 
-void TIMER0_Init(void)
-{
-    /* Enable IP clock */
-    CLK->APBCLK |= CLK_APBCLK_TMR0CKEN_Msk;
-    /* Select IP clock source */
-    CLK->CLKSEL1 = (CLK->CLKSEL1 & (~CLK_CLKSEL1_TMR0SEL_Msk)) | CLK_CLKSEL1_TMR0SEL_XTAL;
-    // Set timer frequency to 3HZ
-    TIMER_Open(TIMER0, TIMER_PERIODIC_MODE, 3);
-    // Enable timer interrupt
-    TIMER_EnableInt(TIMER0);
-    // Start Timer 3
-    TIMER_Start(TIMER0);
-}
+uint32_t CyclesPerUs;
 
 void SYS_Init(void)
 {
@@ -35,8 +23,6 @@ void SYS_Init(void)
         SYS->REGLCTL = 0x88;
     }
 
-    /* Read User Config to select internal high speed RC */
-    SystemInit();
     /* Enable HIRC */
     CLK->PWRCTL |= (CLK_PWRCTL_HIRCEN_Msk | CLK_PWRCTL_XTLEN_Msk);
 
@@ -45,7 +31,7 @@ void SYS_Init(void)
 
     //    SystemCoreClock = __HSI;
     //    CyclesPerUs = (SystemCoreClock + 500000) / 1000000;
-    CyclesPerUs = (__HSI) / 1000000;
+    CyclesPerUs = (__IRC44M_DIV2) / 1000000;
 
     /* Enable IP clock */
     CLK->APBCLK = CLK_APBCLK_SPICKEN_Msk;
@@ -55,9 +41,6 @@ void SYS_Init(void)
     /*---------------------------------------------------------------------------------------------------------*/
     /* Setup SPI multi-function pin */
     SYS->P0_MFP |= SYS_MFP_P04_SPISS | SYS_MFP_P05_MOSI | SYS_MFP_P06_MISO | SYS_MFP_P07_SPICLK;
-
-    /* Update System Core Clock */
-    SystemCoreClockUpdate();
 
 }
 
@@ -71,7 +54,9 @@ int main(void)
     GetDataFlashInfo(&g_dataFlashAddr, &g_dataFlashSize);
     SPI_Init();
     GPIO_Init();
-    TIMER0_Init();
+    SysTick->LOAD = 300000 * CyclesPerUs;
+    SysTick->VAL   = (0x00);
+    SysTick->CTRL = SysTick->CTRL | SysTick_CTRL_CLKSOURCE_Msk | SysTick_CTRL_ENABLE_Msk;//using cpu clock
 
     while (1)
     {
@@ -80,7 +65,7 @@ int main(void)
             goto _ISP;
         }
 
-        if (TIMER0->INTSTS & TIMER_INTSTS_TIF_Msk)
+        if (SysTick->CTRL & SysTick_CTRL_COUNTFLAG_Msk)
         {
             goto _APROM;
         }
@@ -92,7 +77,10 @@ _ISP:
     {
         if (bSpiDataReady == 1)
         {
-            memcpy(cmd_buff, spi_rcvbuf, 64);
+            //memcpy(cmd_buff, spi_rcvbuf, 64);
+            int i;
+            for (i=0; i<16; i++)
+                cmd_buff[i] = spi_rcvbuf[i];
             bSpiDataReady = 0;
             ParseCmd((unsigned char *)cmd_buff, 64);
         }
