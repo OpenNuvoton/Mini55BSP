@@ -422,11 +422,6 @@
           <GroupName>CMSIS</GroupName>
           <Files>
             <File>
-              <FileName>system_Mini55Series.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\Library\Device\Nuvoton\Mini55Series\Source\system_Mini55Series.c</FilePath>
-            </File>
-            <File>
               <FileName>startup_Mini55Series.s</FileName>
               <FileType>2</FileType>
               <FilePath>..\..\..\..\Library\Device\Nuvoton\Mini55Series\Source\ARM\startup_Mini55Series.s</FilePath>
@@ -465,38 +460,6 @@
         </Group>
         <Group>
           <GroupName>Library</GroupName>
-          <Files>
-            <File>
-              <FileName>clk.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\Library\StdDriver\src\clk.c</FilePath>
-            </File>
-            <File>
-              <FileName>fmc.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\Library\StdDriver\src\fmc.c</FilePath>
-            </File>
-            <File>
-              <FileName>gpio.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\Library\StdDriver\src\gpio.c</FilePath>
-            </File>
-            <File>
-              <FileName>spi.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\Library\StdDriver\src\spi.c</FilePath>
-            </File>
-            <File>
-              <FileName>sys.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\Library\StdDriver\src\sys.c</FilePath>
-            </File>
-            <File>
-              <FileName>timer.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\Library\StdDriver\src\timer.c</FilePath>
-            </File>
-          </Files>
         </Group>
       </Groups>
     </Target>
