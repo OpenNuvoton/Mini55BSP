@@ -52,7 +52,7 @@ int main(void)
     CLK->CLKSEL1 |= (0x2 << CLK_CLKSEL1_UART0SEL_Pos);// Clock source from HIRC clock
     //    SystemCoreClock = __HSI;
     //    CyclesPerUs = (SystemCoreClock + 500000) / 1000000;
-    CyclesPerUs = (__HSI) / 1000000;
+    CyclesPerUs = 22;
 
     /* Set P1 multi-function pins for UART RXD, TXD */
     P1->MODE = (P1->MODE & ~(0x3ul << (4 << 1))) | (GPIO_MODE_OUTPUT << (4 << 1));

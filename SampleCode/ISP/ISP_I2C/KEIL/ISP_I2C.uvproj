@@ -429,7 +429,7 @@
             <File>
               <FileName>startup_Mini55Series.s</FileName>
               <FileType>2</FileType>
-              <FilePath>..\..\..\..\Library\Device\Nuvoton\Mini55Series\Source\ARM\startup_Mini55Series.s</FilePath>
+              <FilePath>..\startup_Mini55Series.s</FilePath>
             </File>
           </Files>
         </Group>

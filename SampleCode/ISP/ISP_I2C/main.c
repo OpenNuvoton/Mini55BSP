@@ -47,8 +47,8 @@ int main(void)
     CLK->APBCLK |= CLK_APBCLK_I2CCKEN_Msk; // I2C Clock Enable
 
     //    SystemCoreClock = __HSI;
-    //    CyclesPerUs = (SystemCoreClock + 500000) / 1000000;
-    CyclesPerUs = (__HSI) / 1000000;
+    //CyclesPerUs = (__HSI) / 1000000;
+    CyclesPerUs = 22;
     /* Set P3.4 and P3.5 for I2C SDA and SCL */
     SYS->P3_MFP = SYS_MFP_P34_SDA | SYS_MFP_P35_SCL;
     /* Init I2C for printf */
@@ -57,7 +57,8 @@ int main(void)
     //    FMC->ISPCTL |= FMC_ISPCTL_ISPEN_Msk;
     g_apromSize = GetApromSize();
     GetDataFlashInfo(&g_dataFlashAddr, &g_dataFlashSize);
-    SysTick->LOAD = 300000 * CyclesPerUs;
+    //SysTick->LOAD = 300000 * CyclesPerUs;
+    SysTick->LOAD = 6600000;
     SysTick->VAL   = (0x00);
     SysTick->CTRL = SysTick->CTRL | SysTick_CTRL_CLKSOURCE_Msk | SysTick_CTRL_ENABLE_Msk;//using cpu clock
 

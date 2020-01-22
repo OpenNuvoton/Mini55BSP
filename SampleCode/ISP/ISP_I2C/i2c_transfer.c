@@ -29,7 +29,8 @@ void I2C_Init(void)
     SYS->IPRST1 |=  SYS_IPRST1_I2C_RST_Msk;
     SYS->IPRST1 &= ~SYS_IPRST1_I2C_RST_Msk;
     /* Open I2C0 and set clock to 100k */
-    I2C->CLKDIV = (uint32_t)((((SystemCoreClock/2) * 10U) / (100000 * 4U) + 5U) / 10U - 1U); /* Compute proper divider for I2C clock */;
+    //I2C->CLKDIV = (uint32_t)((((SystemCoreClock/2) * 10U) / (100000 * 4U) + 5U) / 10U - 1U); /* Compute proper divider for I2C clock */;
+    I2C0->CLKDIV = 27;
     I2C->CTL |= I2C_CTL_I2CEN_Msk;
     /* Set I2C0 ADDR0 Slave Addresses */
     I2C->ADDR0  = (I2C_ADDR << 1U) | I2C_GCMODE_DISABLE;
@@ -42,20 +43,12 @@ void I2C_Init(void)
 /*---------------------------------------------------------------------------------------------------------*/
 /*  I2C1 IRQ Handler                                                                                       */
 /*---------------------------------------------------------------------------------------------------------*/
-void I2C0_IRQHandler(void)
+void I2C_IRQHandler(void)
 {
     uint32_t u32Status;
     u32Status = I2C_GET_STATUS(I2C0);
 
-    if (I2C_GET_TIMEOUT_FLAG(I2C0))
-    {
-        /* Clear I2C1 Timeout Flag */
-        I2C0->TOCTL |= I2C_TOCTL_TOIF_Msk;
-    }
-    else
-    {
-        I2C_SlaveTRx(I2C0, u32Status);
-    }
+    I2C_SlaveTRx(I2C0, u32Status);
 }
 
 /*---------------------------------------------------------------------------------------------------------*/

@@ -375,7 +375,7 @@
             <v6Rtti>0</v6Rtti>
             <VariousControls>
               <MiscControls></MiscControls>
-              <Define>DEBUG_ENABLE_SEMIHOST</Define>
+              <Define></Define>
               <Undefine></Undefine>
               <IncludePath>..\..\..\..\Library\CMSIS\Include;..\..\..\..\Library\Device\Nuvoton\Mini55Series\Include;..\..\..\..\Library\StdDriver\inc</IncludePath>
             </VariousControls>
@@ -429,7 +429,7 @@
             <File>
               <FileName>startup_Mini55Series.s</FileName>
               <FileType>2</FileType>
-              <FilePath>..\..\..\..\Library\Device\Nuvoton\Mini55Series\Source\ARM\startup_Mini55Series.s</FilePath>
+              <FilePath>..\startup_Mini55Series.s</FilePath>
             </File>
           </Files>
         </Group>
