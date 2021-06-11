@@ -51,6 +51,8 @@ int main(void)
     CyclesPerUs = 22;
     /* Set P3.4 and P3.5 for I2C SDA and SCL */
     SYS->P3_MFP = SYS_MFP_P34_SDA | SYS_MFP_P35_SCL;
+    /* I2C pin enable schmitt trigger */
+    SYS->P3_MFP |= SYS_MFP_TYPE_Msk(4) | SYS_MFP_TYPE_Msk(5);
     /* Init I2C for printf */
     I2C_Init();
     //    CLK->AHBCLK |= CLK_AHBCLK_ISPCKEN_Msk;
