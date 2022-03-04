@@ -31,7 +31,6 @@ void GPIO01_IRQHandler(void)
         P1->INTSRC = BIT5;
         P30 = P30 ^ 1;
         printf("P1.5 INT occurred. \n");
-
     }
     else
     {
@@ -113,8 +112,10 @@ void EINT1_IRQHandler(void)
     printf("P5.2 EINT1 occurred. \n");
 }
 
-void SYS_Init(void)
+int32_t SYS_Init(void)
 {
+    uint32_t u32TimeOutCnt;
+
     /*---------------------------------------------------------------------------------------------------------*/
     /* Init System Clock                                                                                       */
     /*---------------------------------------------------------------------------------------------------------*/
@@ -128,15 +129,19 @@ void SYS_Init(void)
     }
 
     /* Read User Config to select internal high speed RC */
-    SystemInit();
+    if (SystemInit() < 0)
+        return -1;
 
     /* Enable HIRC, and LIRC (fro WDT) */
     CLK->PWRCTL = CLK_PWRCTL_HIRCEN_Msk | CLK_PWRCTL_LIRCEN_Msk;
 
     /* Waiting for clock ready */
-    while((CLK->STATUS & (CLK_STATUS_HIRCSTB_Msk | CLK_STATUS_LIRCSTB_Msk)) !=
-            (CLK_STATUS_HIRCSTB_Msk | CLK_STATUS_LIRCSTB_Msk));
-
+    u32TimeOutCnt = SystemCoreClock / 2;
+    while((CLK->STATUS & (CLK_STATUS_HIRCSTB_Msk | CLK_STATUS_LIRCSTB_Msk)) != (CLK_STATUS_HIRCSTB_Msk | CLK_STATUS_LIRCSTB_Msk))
+    {
+        if(--u32TimeOutCnt == 0)
+            return -1;
+    }
 
     /* Enable UART and WDT clock */
     CLK->APBCLK = CLK_APBCLK_UART0CKEN_Msk | CLK_APBCLK_WDTCKEN_Msk;
@@ -154,6 +159,7 @@ void SYS_Init(void)
 
     /* Lock protected registers */
     SYS->REGLCTL = 0;
+    return 0;
 }
 
 void UART_Init(void)
@@ -173,10 +179,16 @@ int main (void)
     int32_t i32Err;
 
     /* Init System, IP clock and multi-function I/O */
-    SYS_Init(); //In the end of SYS_Init() will issue SYS_LockReg() to lock protected register. If user want to write protected register, please issue SYS_UnlockReg() to unlock protected register.
+    i32Err = SYS_Init(); //In the end of SYS_Init() will issue SYS_LockReg() to lock protected register. If user want to write protected register, please issue SYS_UnlockReg() to unlock protected register.
 
     /* Init UART for printf */
     UART_Init();
+
+    if (i32Err != 0)
+    {
+        printf("SYS_Init failed!\n");
+        while (1);
+    }
 
     printf("\n\nCPU @ %dHz\n", SystemCoreClock);
 

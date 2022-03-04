@@ -112,13 +112,14 @@ void EINT1_IRQHandler(void)
     printf("P5.2 EINT1 occurred. \n");
 }
 
-void SYS_Init(void)
+int32_t SYS_Init(void)
 {
     /* Unlock protected registers */
     SYS_UnlockReg();
 
     /* Read User Config to select internal high speed RC */
-    SystemInit();
+    if (SystemInit() < 0)
+        return -1;
 
     /*---------------------------------------------------------------------------------------------------------*/
     /* Init System Clock                                                                                       */
@@ -157,6 +158,7 @@ void SYS_Init(void)
 
     /* Lock protected registers */
     SYS_LockReg();
+    return 0;
 }
 
 void UART_Init(void)
@@ -178,12 +180,20 @@ void UART_Init(void)
 int main (void)
 {
     int32_t i32Err;
+    int32_t retval;
 
     /* Init System, IP clock and multi-function I/O */
-    SYS_Init(); //In the end of SYS_Init() will issue SYS_LockReg() to lock protected register. If user want to write protected register, please issue SYS_UnlockReg() to unlock protected register.
+    //In the end of SYS_Init() will issue SYS_LockReg() to lock protected register. If user want to write protected register, please issue SYS_UnlockReg() to unlock protected register.
+    retval = SYS_Init();
 
     /* Init UART for printf */
     UART_Init();
+
+    if (retval != 0)
+    {
+        printf("SYS_Init failed!\n");
+        while (1);
+    }
 
     printf("\n\nCPU @ %dHz\n", SystemCoreClock);
 

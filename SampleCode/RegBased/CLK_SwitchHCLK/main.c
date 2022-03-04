@@ -11,8 +11,10 @@
 #include <stdio.h>
 #include "Mini55Series.h"
 
-void SYS_Init(void)
+int32_t SYS_Init(void)
 {
+    uint32_t u32TimeOutCnt;
+
     /*---------------------------------------------------------------------------------------------------------*/
     /* Init System Clock                                                                                       */
     /*---------------------------------------------------------------------------------------------------------*/
@@ -26,7 +28,8 @@ void SYS_Init(void)
     }
 
     /* Read User Config to select internal high speed RC */
-    SystemInit();
+    if (SystemInit() < 0)
+        return -1;
 
     /* Set P5 multi-function pins for XTAL1 and XTAL2 */
     SYS->P5_MFP &= ~(SYS_MFP_P50_Msk | SYS_MFP_P51_Msk);
@@ -37,8 +40,12 @@ void SYS_Init(void)
     CLK->PWRCTL = CLK_PWRCTL_HIRCEN_Msk | CLK_PWRCTL_XTL12M;
 
     /* Waiting for clock ready */
-    while((CLK->STATUS & (CLK_STATUS_HIRCSTB_Msk | CLK_STATUS_XTLSTB_Msk)) !=
-            (CLK_STATUS_HIRCSTB_Msk | CLK_STATUS_XTLSTB_Msk));
+    u32TimeOutCnt = SystemCoreClock / 2;
+    while((CLK->STATUS & (CLK_STATUS_HIRCSTB_Msk | CLK_STATUS_XTLSTB_Msk)) != (CLK_STATUS_HIRCSTB_Msk | CLK_STATUS_XTLSTB_Msk))
+    {
+        if(--u32TimeOutCnt == 0)
+            return -1;
+    }
 
     /* Enable UART clock */
     CLK->APBCLK = CLK_APBCLK_UART0CKEN_Msk;
@@ -57,6 +64,7 @@ void SYS_Init(void)
 
     /* Lock protected registers */
     SYS->REGLCTL = 0;
+    return 0;
 }
 
 void UART_Init(void)
@@ -73,11 +81,19 @@ void UART_Init(void)
 /*---------------------------------------------------------------------------------------------------------*/
 int main (void)
 {
+    int32_t  retval;
+
     /* Init System, IP clock and multi-function I/O */
-    SYS_Init();
+    retval = SYS_Init();
 
     /* Init UART for printf */
     UART_Init();
+
+    if (retval != 0)
+    {
+        printf("SYS_Init failed!\n");
+        while (1);
+    }
 
     printf("\n\nCPU @ %dHz\n", SystemCoreClock);
 

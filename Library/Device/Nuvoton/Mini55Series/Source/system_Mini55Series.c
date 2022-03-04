@@ -19,7 +19,7 @@
  *----------------------------------------------------------------------------*/
 uint32_t gau32HIRCTbl[4] = {__IRC48M, __IRC48M_DIV2, __IRC44M, __IRC44M_DIV2};
 uint32_t __HSI = __IRC44M_DIV2;                 /*!< Factory Default is internal high speed RC 44.2368M divided by 2 */
-uint32_t SystemCoreClock;                       /*!< System Clock Frequency (Core Clock) */
+uint32_t SystemCoreClock = __SYSTEM_CLOCK;      /*!< System Clock Frequency (Core Clock)*/
 uint32_t CyclesPerUs;                           /*!< Cycles per micro second */
 
 /**
@@ -28,22 +28,25 @@ uint32_t CyclesPerUs;                           /*!< Cycles per micro second */
  *  @return none
  */
 
-void SystemInit (void)
+int32_t SystemInit (void)
 {
     uint32_t u32CoreFreq;
+    int32_t tout = ((SystemCoreClock/10)*2);
 
     /* Read the User Configuration words. */
     FMC->ISPCTL |=  FMC_ISPCTL_ISPEN_Msk;
     FMC->ISPCMD = FMC_ISPCMD_READ;
     FMC->ISPADDR = FMC_CONFIG_BASE;
     FMC->ISPTRG = FMC_ISPTRG_ISPGO_Msk;
-    while (FMC->ISPTRG & FMC_ISPTRG_ISPGO_Msk) ;
+    while ((FMC->ISPTRG & FMC_ISPTRG_ISPGO_Msk) && (tout-- > 0));
+    if (tout <= 0)
+        return -1;
 
     u32CoreFreq = (FMC->ISPDAT >> 27) & 0x1;  // 0 : Internal 48M  1: Internal 44M
     u32CoreFreq = (u32CoreFreq << 1);
     u32CoreFreq |= (FMC->ISPDAT >> 15) & 0x1; // 1: divided by 2
     __HSI = gau32HIRCTbl[u32CoreFreq];
-
+    return 0;
 }
 
 /**

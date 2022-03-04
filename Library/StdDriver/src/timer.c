@@ -90,11 +90,12 @@ void TIMER_Close(TIMER_T *timer)
   * @note This API overwrites the register setting of the timer used to count the delay time.
   * @note This API use polling mode. So there is no need to enable interrupt for the timer module used to generate delay
   */
-void TIMER_Delay(TIMER_T *timer, uint32_t u32Usec)
+int32_t TIMER_Delay(TIMER_T *timer, uint32_t u32Usec)
 {
     uint32_t u32Clk = TIMER_GetModuleClock(timer);
     uint32_t u32Prescale = 0, delay = SystemCoreClock / u32Clk;
     long long u64Cmpr;
+    uint32_t u32Cntr, i = 0UL;
 
     // Clear current timer configuration
     timer->CTL = 0;
@@ -133,7 +134,28 @@ void TIMER_Delay(TIMER_T *timer, uint32_t u32Usec)
         __NOP();
     }
 
-    while(timer->CTL & TIMER_CTL_ACTSTS_Msk);
+    /* Add a bail out counter here in case timer clock source is disabled accidentally.
+       Prescale counter reset every ECLK * (prescale value + 1).
+       The u32Delay here is to make sure timer counter value changed when prescale counter reset */
+    delay = (SystemCoreClock / TIMER_GetModuleClock(timer)) * (u32Prescale + 1);
+    u32Cntr = timer->CNT;
+    while(timer->CTL & TIMER_CTL_ACTSTS_Msk)
+    {
+        /* Bailed out if timer stop counting e.g. Some interrupt handler close timer clock source. */
+        if(u32Cntr == timer->CNT)
+        {
+            if(i++ > delay)
+            {
+                return -1;
+            }
+        }
+        else
+        {
+            i = 0;
+            u32Cntr = timer->CNT;
+        }
+    }
+    return 0;
 
 }
 

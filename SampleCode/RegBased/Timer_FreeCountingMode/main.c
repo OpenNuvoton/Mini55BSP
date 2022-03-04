@@ -41,14 +41,14 @@ void TMR0_IRQHandler(void)
         cnt = 0;
     }
 
-
     TIMER0->EINTSTS = TIMER_EINTSTS_CAPIF_Msk;
-
 }
 
 
-void SYS_Init(void)
+int32_t SYS_Init(void)
 {
+    uint32_t u32TimeOutCnt;
+
     /*---------------------------------------------------------------------------------------------------------*/
     /* Init System Clock                                                                                       */
     /*---------------------------------------------------------------------------------------------------------*/
@@ -62,14 +62,20 @@ void SYS_Init(void)
     }
 
     /* Read User Config to select internal high speed RC */
-    SystemInit();
+    if (SystemInit() < 0)
+        return -1;
 
     /* Enable HIRC */
     CLK->PWRCTL = CLK_PWRCTL_HIRCEN_Msk | CLK_PWRCTL_XTL12M;
 
     /* Waiting for clock ready */
-    while((CLK->STATUS & (CLK_STATUS_HIRCSTB_Msk | CLK_STATUS_XTLSTB_Msk)) !=
-            (CLK_STATUS_HIRCSTB_Msk | CLK_STATUS_XTLSTB_Msk));
+    u32TimeOutCnt = SystemCoreClock / 2;
+    while((CLK->STATUS & (CLK_STATUS_HIRCSTB_Msk | CLK_STATUS_XTLSTB_Msk)) != (CLK_STATUS_HIRCSTB_Msk | CLK_STATUS_XTLSTB_Msk))
+    {
+        if(--u32TimeOutCnt == 0)
+            return -1;
+    }
+
     /* Enable UART and Timer 0 clock */
     CLK->APBCLK = CLK_APBCLK_UART0CKEN_Msk | CLK_APBCLK_TMR0CKEN_Msk;
     /* Select Timer 0 clock source from external crystal*/
@@ -91,6 +97,7 @@ void SYS_Init(void)
 
     /* Lock protected registers */
     SYS->REGLCTL = 0;
+    return 0;
 }
 
 void UART_Init(void)
@@ -105,16 +112,23 @@ void UART_Init(void)
 int main(void)
 {
     int volatile i;
+    int32_t  retval;
 
     /* Init System, IP clock and multi-function I/O
        In the end of SYS_Init() will issue SYS_LockReg()
        to lock protected register. If user want to write
        protected register, please issue SYS_UnlockReg()
        to unlock protected register if necessary */
-    SYS_Init();
+    retval = SYS_Init();
 
     /* Init UART to 115200-8n1 for print message */
     UART_Init();
+
+    if (retval != 0)
+    {
+        printf("SYS_Init failed!\n");
+        while (1);
+    }
 
     printf("\nThis sample code demonstrate timer trigger counting mode.\n");
     printf("Please connect input source with Timer 0 capture pin T0EX (P3.2), press any key to continue\n");

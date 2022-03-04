@@ -41,7 +41,6 @@ uint16_t SpiFlash_ReadMidDid(void)
             u8RxData[u8IDCnt ++] = SPI_FLASH_PORT->RX;
     }
 
-
     // /CS: de-active
     SPI_FLASH_PORT->SSCTL &= ~SPI_SSCTL_SS_Msk;
 
@@ -231,7 +230,7 @@ void SpiFlash_NormalRead(uint32_t StartAddress, uint8_t *u8DataBuffer)
     SPI_FLASH_PORT->SSCTL &= ~SPI_SSCTL_SS_Msk;
 }
 
-void SYS_Init(void)
+int32_t SYS_Init(void)
 {
     int32_t i32TimeOutCnt;
     /*---------------------------------------------------------------------------------------------------------*/
@@ -247,7 +246,8 @@ void SYS_Init(void)
     }
 
     /* Read User Config to select internal high speed RC */
-    SystemInit();
+    if (SystemInit() < 0)
+        return -1;
 
     /* Enable HIRC */
     CLK->PWRCTL = CLK_PWRCTL_HIRCEN_Msk;
@@ -257,7 +257,7 @@ void SYS_Init(void)
     while((CLK->STATUS & CLK_STATUS_HIRCSTB_Msk) != CLK_STATUS_HIRCSTB_Msk)
     {
         if(i32TimeOutCnt-- <= 0)
-            break;
+            return -1;
     }
 
     /* Enable IP clock */
@@ -281,6 +281,7 @@ void SYS_Init(void)
 
     /* Lock protected registers */
     SYS->REGLCTL = 0;
+    return 0;
 }
 
 void UART_Init()
@@ -323,15 +324,22 @@ void SPI_Init(void)
 /* Main */
 int main(void)
 {
+    int32_t  retval;
     uint32_t u32ByteCount, u32FlashAddress, u32PageNumber;
     uint32_t nError = 0;
     uint16_t u16ID;
 
     /* Init System, IP clock and multi-function I/O */
-    SYS_Init();
+    retval = SYS_Init();
 
     /* Init UART for printf */
     UART_Init();
+
+    if (retval != 0)
+    {
+        printf("SYS_Init failed!\n");
+        while (1);
+    }
 
     /* Init SPI */
     SPI_Init();

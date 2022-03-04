@@ -137,7 +137,7 @@ void I2C_MasterTx(uint32_t u32Status)
     }
 }
 
-void SYS_Init(void)
+int32_t SYS_Init(void)
 {
     int32_t i32TimeOutCnt;
     /*---------------------------------------------------------------------------------------------------------*/
@@ -153,7 +153,8 @@ void SYS_Init(void)
     }
 
     /* Read User Config to select internal high speed RC */
-    SystemInit();
+    if (SystemInit() < 0)
+        return -1;
 
     /* Enable HIRC */
     CLK->PWRCTL = CLK_PWRCTL_HIRCEN_Msk;
@@ -190,6 +191,7 @@ void SYS_Init(void)
 
     /* Update System Core Clock */
     SystemCoreClockUpdate();
+    return 0;
 }
 
 void UART_Init(void)
@@ -235,13 +237,20 @@ void I2C_Init(void)
 int32_t main (void)
 {
     uint32_t i;
+    int32_t  retval;
+    uint32_t u32TimeOutCount = SystemCoreClock; // 1 second timeout
 
     /* Init System, IP clock and multi-function I/O */
-    SYS_Init();
+    retval = SYS_Init();
 
     /* Init UART for printf */
     UART_Init();
 
+    if (retval != 0)
+    {
+        printf("SYS_Init failed!\n");
+        while (1);
+    }
     /*
         This sample code sets I2C bus clock to 100kHz. Then, accesses EEPROM 24LC64 with Byte Write
         and Byte Read operations, and check if the read data is equal to the programmed data.
@@ -273,7 +282,15 @@ int32_t main (void)
 
         /* Wait I2C Tx Finish */
         while (g_u8EndFlag == 0);
-        while(I2C->CTL & I2C_CTL_STO_Msk);
+        while(I2C->CTL & I2C_CTL_STO_Msk)
+        {
+            u32TimeOutCount--;
+            if (u32TimeOutCount == 0)
+            {
+                printf("timeout!\n");
+                break;
+            }
+        }
         g_u8EndFlag = 0;
 
         /* I2C function to read data from slave */
@@ -295,7 +312,15 @@ int32_t main (void)
 
         /* Wait I2C Rx Finish */
         while (g_u8EndFlag == 0);
-        while(I2C->CTL & I2C_CTL_STO_Msk);
+        while(I2C->CTL & I2C_CTL_STO_Msk)
+        {
+            u32TimeOutCount--;
+            if (u32TimeOutCount == 0)
+            {
+                printf("timeout!\n");
+                break;
+            }
+        }
 
         /* Compare data */
         if (g_u8RxData != g_au8TxData[2])

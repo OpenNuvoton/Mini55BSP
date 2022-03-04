@@ -34,8 +34,10 @@ int32_t main(void);
 void UART_TEST_HANDLE(void);
 void AutoFlow_FunctionTest(void);
 
-void SYS_Init(void)
+int32_t SYS_Init(void)
 {
+    uint32_t u32TimeOutCnt;
+
     /*---------------------------------------------------------------------------------------------------------*/
     /* Init System Clock                                                                                       */
     /*---------------------------------------------------------------------------------------------------------*/
@@ -45,8 +47,8 @@ void SYS_Init(void)
     SYS->REGLCTL = 0x88;
 
     /* Read User Config to select internal high speed RC */
-    SystemInit();
-
+    if (SystemInit() < 0)
+        return -1;
     /* Set P5 multi-function pins for crystal output/input */
     SYS->P5_MFP &= ~(SYS_MFP_P50_Msk | SYS_MFP_P51_Msk);
     SYS->P5_MFP |= (SYS_MFP_P50_XTAL1 | SYS_MFP_P51_XTAL2);
@@ -56,8 +58,12 @@ void SYS_Init(void)
     CLK->PWRCTL |= (0x1 << CLK_PWRCTL_XTLEN_Pos); // XTAL12M (HXT) Enabled
 
     /* Waiting for 12MHz clock ready */
-    while(!(CLK->STATUS & CLK_STATUS_XTLSTB_Msk));
-
+    u32TimeOutCnt = SystemCoreClock / 2;
+    while((CLK->STATUS & CLK_STATUS_XTLSTB_Msk) != CLK_STATUS_XTLSTB_Msk)
+    {
+        if(--u32TimeOutCnt == 0)
+            return -1;
+    }
 
     /* Switch HCLK clock source to XTAL */
     CLK->CLKSEL0 &= ~CLK_CLKSEL0_HCLKSEL_Msk;
@@ -86,7 +92,7 @@ void SYS_Init(void)
 
     /* Lock protected registers */
     SYS->REGLCTL = 0;
-
+    return 0;
 }
 
 void UART_Init()
@@ -112,10 +118,18 @@ void UART_Init()
 
 int32_t main(void)
 {
+    int32_t  retval;
+
     /* Init System, IP clock and multi-function I/O */
-    SYS_Init();
+    retval = SYS_Init();
     /* Init UART for printf */
     UART_Init();
+
+    if (retval != 0)
+    {
+        printf("SYS_Init failed!\n");
+        while (1);
+    }
 
     /*---------------------------------------------------------------------------------------------------------*/
     /* SAMPLE CODE                                                                                             */

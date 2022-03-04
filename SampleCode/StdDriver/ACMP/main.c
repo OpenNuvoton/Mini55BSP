@@ -29,7 +29,7 @@ void ACMP_IRQHandler(void)
 }
 
 
-void SYS_Init(void)
+int32_t SYS_Init(void)
 {
     /*---------------------------------------------------------------------------------------------------------*/
     /* Init System Clock                                                                                       */
@@ -38,7 +38,8 @@ void SYS_Init(void)
     SYS_UnlockReg();
 
     /*  Read User Config to select internal high speed RC  */
-    SystemInit();
+    if (SystemInit() < 0)
+        return -1;
 
     /* Set P5 multi-function pins for XTAL1 and XTAL2 */
     SYS->P5_MFP = (SYS_MFP_P50_XTAL1 | SYS_MFP_P51_XTAL2);
@@ -62,7 +63,6 @@ void SYS_Init(void)
     /* User can use SystemCoreClockUpdate() to calculate SystemCoreClock and CycylesPerUs automatically. */
     SystemCoreClockUpdate();
 
-
     /*---------------------------------------------------------------------------------------------------------*/
     /* Init I/O Multi-function                                                                                 */
     /*---------------------------------------------------------------------------------------------------------*/
@@ -80,19 +80,28 @@ void SYS_Init(void)
 
     /* Register write-protection enabled */
     SYS_LockReg();
+    return 0;
 }
 
 int32_t main(void)
 {
+    int32_t retval;
+
     /* Init System, IP clock and multi-function I/O
        In the end of SYS_Init() will issue SYS_LockReg()
        to lock protected register. If user want to write
        protected register, please issue SYS_UnlockReg()
        to unlock protected register if necessary. */
-    SYS_Init();
+    retval = SYS_Init();
 
     /* Configure UART0: 115200, 8-bit word, no parity bit, 1 stop bit. */
     UART_Open(UART0, 115200);
+
+    if (retval != 0)
+    {
+        printf("SYS_Init failed!\n");
+        while (1);
+    }
 
     printf("\n\n");
     printf("+---------------------------------------+\n");

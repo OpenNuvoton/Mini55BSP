@@ -63,12 +63,24 @@ extern "C"
   * @param[in] i2c is the base address of I2C module.
   * @return none
   */
+#if 0
 #define I2C_STOP(i2c) \
 do { \
     (i2c)->CTL |= (I2C_CTL_SI_Msk | I2C_CTL_STO_Msk); \
     while((i2c)->CTL & I2C_CTL_STO_Msk); \
 } while(0)
-
+#else
+static __INLINE void I2C_STOP(I2C_T *i2c)
+{
+    uint32_t u32TimeOutCount = SystemCoreClock; // 1 second timeout
+    (i2c)->CTL |= (I2C_CTL_SI_Msk | I2C_CTL_STO_Msk);
+    while(i2c->CTL & I2C_CTL_STO_Msk)
+    {
+        u32TimeOutCount--;
+        if(u32TimeOutCount == 0) break;
+    }
+}
+#endif
 
 /**
   * @brief This macro will return when I2C module is ready.

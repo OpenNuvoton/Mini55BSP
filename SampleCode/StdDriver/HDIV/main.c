@@ -12,7 +12,7 @@
 #include <stdio.h>
 #include "Mini55Series.h"
 
-void SYS_Init(void)
+int32_t SYS_Init(void)
 {
     /*---------------------------------------------------------------------------------------------------------*/
     /* Init System Clock                                                                                       */
@@ -22,7 +22,8 @@ void SYS_Init(void)
     SYS_UnlockReg();
 
     /* Read User Config to select internal high speed RC  */
-    SystemInit();
+    if (SystemInit() < 0)
+        return -1;
 
     /* Enable external 12MHz XTAL (UART), HIRC */
     CLK->PWRCTL = CLK_PWRCTL_XTL12M | CLK_PWRCTL_HIRCEN_Msk;
@@ -45,6 +46,7 @@ void SYS_Init(void)
 
     /* Set P1 multi-function pins for UART RXD, TXD */
     SYS->P0_MFP = SYS_MFP_P00_TXD | SYS_MFP_P01_RXD;
+    return 0;
 }
 
 void HDIV_Init(void)
@@ -58,14 +60,22 @@ void HDIV_Init(void)
 /*---------------------------------------------------------------------------------------------------------*/
 int main(void)
 {
+    int32_t retval;
+
     /* Disable register write-protection function */
     SYS_UnlockReg();
 
     /* Init System, IP clock and multi-function I/O */
-    SYS_Init();
+    retval = SYS_Init();
 
     /* Init UART to 115200-8n1 for print message */
     UART_Open(UART0, 115200);
+
+    if (retval != 0)
+    {
+        printf("SYS_Init failed!\n");
+        while (1);
+    }
 
     /* Enable Hardware Divider Clock */
     HDIV_Init();

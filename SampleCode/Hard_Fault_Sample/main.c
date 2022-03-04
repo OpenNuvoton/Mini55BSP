@@ -13,7 +13,7 @@
 #include "Mini55Series.h"
 
 
-void SYS_Init(void)
+int32_t SYS_Init(void)
 {
     /*---------------------------------------------------------------------------------------------------------*/
     /* Init System Clock                                                                                       */
@@ -22,7 +22,8 @@ void SYS_Init(void)
     SYS_UnlockReg();
 
     /* Read User Config to select internal high speed RC  */
-    SystemInit();
+    if (SystemInit() < 0)
+        return -1;
 
     /* Enable External XTAL and HIRC */
     CLK->PWRCTL = CLK_PWRCTL_XTL12M | CLK_PWRCTL_HIRCEN_Msk;
@@ -50,7 +51,7 @@ void SYS_Init(void)
 
     /* Lock protected registers */
     SYS_LockReg();
-
+    return 0;
 }
 
 void UART_Init()
@@ -67,12 +68,19 @@ void UART_Init()
 
 int main(void)
 {
+    int32_t retval;
     char *tmp = (char *)0x4;
 
     /* Init System, IP clock and multi-function I/O */
-    SYS_Init();
+    retval = SYS_Init();
     /* Init UART for printf */
     UART_Init();
+
+    if (retval != 0)
+    {
+        printf("SYS_Init failed!\n");
+        while (1);
+    }
 
     strcpy(tmp,"HardFaultTest");
 

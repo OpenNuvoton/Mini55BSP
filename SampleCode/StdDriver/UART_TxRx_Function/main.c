@@ -37,7 +37,7 @@ void UART_TEST_HANDLE(void);
 void UART_FunctionTest(void);
 
 
-void SYS_Init(void)
+int32_t SYS_Init(void)
 {
     /*---------------------------------------------------------------------------------------------------------*/
     /* Init System Clock                                                                                       */
@@ -46,7 +46,8 @@ void SYS_Init(void)
     SYS_UnlockReg();
 
     /* Read User Config to select internal high speed RC */
-    SystemInit();
+    if (SystemInit() < 0)
+        return -1;
 
     /* Set P5 multi-function pins for crystal output/input */
     SYS->P5_MFP &= ~(SYS_MFP_P50_Msk | SYS_MFP_P51_Msk);
@@ -87,7 +88,7 @@ void SYS_Init(void)
 
     /* Lock protected registers */
     SYS_LockReg();
-
+    return 0;
 }
 
 void UART_Init()
@@ -110,10 +111,18 @@ void UART_Init()
 
 int32_t main(void)
 {
+    int32_t retval;
+
     /* Init System, IP clock and multi-function I/O */
-    SYS_Init();
+    retval = SYS_Init();
     /* Init UART for printf */
     UART_Init();
+
+    if (retval != 0)
+    {
+        printf("SYS_Init failed!\n");
+        while (1);
+    }
 
     /*---------------------------------------------------------------------------------------------------------*/
     /* SAMPLE CODE                                                                                             */

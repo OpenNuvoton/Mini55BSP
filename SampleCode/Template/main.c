@@ -12,13 +12,14 @@
 #include "Mini55Series.h"
 
 
-void SYS_Init(void)
+int32_t SYS_Init(void)
 {
     /* Unlock protected registers */
     SYS_UnlockReg();
 
     /* Read User Config to select internal high speed RC  */
-    SystemInit();
+    if (SystemInit() < 0)
+        return -1;
 
     // Enable UART clock
     CLK_EnableModuleClock(UART0_MODULE);
@@ -32,17 +33,24 @@ void SYS_Init(void)
 
     /* Lock protected registers */
     SYS_LockReg();
-
+    return 0;
 }
 
 
 int main()
 {
+    int32_t retval;
 
-    SYS_Init();
+    retval = SYS_Init();
 
     /* Init UART to 115200-8n1 for print message */
     UART_Open(UART0, 115200);
+
+    if (retval != 0)
+    {
+        printf("SYS_Init failed!\n");
+        while (1);
+    }
 
     printf("Hello World\n");
 

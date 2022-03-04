@@ -38,13 +38,14 @@ void PWRWU_IRQHandler(void)
     printf("Wake Up Interrupt is asserted\n");
 }
 
-void SYS_Init(void)
+int32_t SYS_Init(void)
 {
     /* Unlock protected registers */
     SYS_UnlockReg();
 
     /*  Read User Config to select internal high speed RC  */
-    SystemInit();
+    if (SystemInit() < 0)
+        return -1;
 
     /*---------------------------------------------------------------------------------------------------------*/
     /* Init System Clock                                                                                       */
@@ -82,6 +83,7 @@ void SYS_Init(void)
 
     /* Lock protected registers */
     SYS_LockReg();
+    return 0;
 }
 
 void UART_Init(void)
@@ -103,12 +105,19 @@ void UART_Init(void)
 int32_t main (void)
 {
     uint32_t u32data;
+    int32_t retval;
 
     /* Init System, IP clock and multi-function I/O */
-    SYS_Init();
+    retval = SYS_Init();
 
     /* Init UART for printf */
     UART_Init();
+
+    if (retval != 0)
+    {
+        printf("SYS_Init failed!\n");
+        while (1);
+    }
 
     printf("\n\nCPU @ %dHz\n", SystemCoreClock);
 

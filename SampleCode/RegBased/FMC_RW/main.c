@@ -19,10 +19,13 @@
 #define TEST_PATTERN            0x5A5A5A5A
 
 
-void SYS_Init(void)
+int32_t SYS_Init(void)
 {
+    uint32_t u32TimeOutCnt;
+
     /* Read User Config to select internal high speed RC */
-    SystemInit();
+    if (SystemInit() < 0)
+        return -1;
 
     /*---------------------------------------------------------------------------------------------------------*/
     /* Init System Clock                                                                                       */
@@ -32,7 +35,12 @@ void SYS_Init(void)
     CLK->PWRCTL |= (0x1 << CLK_PWRCTL_XTLEN_Pos); // XTAL12M (HXT) Enabled
 
     /* Waiting for 12MHz clock ready */
-    while (!(CLK->STATUS & CLK_STATUS_XTLSTB_Msk));
+    u32TimeOutCnt = SystemCoreClock / 2;
+    while((CLK->STATUS & CLK_STATUS_XTLSTB_Msk) != CLK_STATUS_XTLSTB_Msk)
+    {
+        if(--u32TimeOutCnt == 0)
+            return -1;
+    }
 
     /* Switch HCLK clock source to XTAL */
     CLK->CLKSEL0 &= ~CLK_CLKSEL0_HCLKSEL_Msk;
@@ -45,6 +53,7 @@ void SYS_Init(void)
     CLK->CLKSEL1 &= ~CLK_CLKSEL1_UART0SEL_Msk;
     CLK->CLKSEL1 |= (0x0 << CLK_CLKSEL1_UART0SEL_Pos);// Clock source from external 12 MHz or 32 KHz crystal clock
 
+    return 0;
 }
 
 void UART_Init()
@@ -152,13 +161,21 @@ int32_t  flash_test(uint32_t u32StartAddr, uint32_t u32EndAddr, uint32_t u32Patt
 
 int main()
 {
+    int32_t  retval;
+
     /* Disable register write-protection function */
     SYS->REGLCTL = 0x59;
     SYS->REGLCTL = 0x16;
     SYS->REGLCTL = 0x88;
 
-    SYS_Init();
+    retval = SYS_Init();
     UART_Init();
+
+    if (retval != 0)
+    {
+        printf("SYS_Init failed!\n");
+        while (1);
+    }
 
     printf("\n\n");
     printf("+----------------------------------------+\n");

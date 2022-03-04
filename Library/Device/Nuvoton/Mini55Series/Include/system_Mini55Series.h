@@ -35,6 +35,8 @@ extern "C" {
 #define __IRC10K         (10000UL)
 #define __XTAL            __XTAL12M
 
+#define __SYSTEM_CLOCK   (1*__XTAL)
+
 extern uint32_t __HSI;
 extern uint32_t SystemCoreClock;        /*!< System Clock Frequency (Core Clock) */
 extern uint32_t CyclesPerUs;            /*!< Cycles per micro second */
@@ -50,7 +52,7 @@ extern uint32_t CyclesPerUs;            /*!< Cycles per micro second */
  */
 
 extern void SystemCoreClockUpdate (void);
-extern void SystemInit (void);
+extern int32_t SystemInit (void);
 
 #ifdef __cplusplus
 }

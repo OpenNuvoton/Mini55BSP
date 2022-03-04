@@ -228,13 +228,14 @@ void SpiFlash_NormalRead(uint32_t StartAddress, uint8_t *u8DataBuffer)
     SPI_SET_SS_HIGH(SPI_FLASH_PORT);
 }
 
-void SYS_Init(void)
+int32_t SYS_Init(void)
 {
     /* Unlock protected registers */
     SYS_UnlockReg();
 
     /* Read User Config to select internal high speed RC */
-    SystemInit();
+    if (SystemInit() < 0)
+        return -1;
 
     /*---------------------------------------------------------------------------------------------------------*/
     /* Init System Clock                                                                                       */
@@ -270,6 +271,7 @@ void SYS_Init(void)
 
     /* Lock protected registers */
     SYS_LockReg();
+    return 0;
 }
 
 /* Main */
@@ -278,14 +280,21 @@ int main(void)
     uint32_t u32ByteCount, u32FlashAddress, u32PageNumber;
     uint32_t nError = 0;
     uint16_t u16ID;
+    int32_t retval;
 
     /* Init System, IP clock and multi-function I/O */
-    SYS_Init();
+    retval = SYS_Init();
 
     /* Init UART to 115200-8n1 for print message */
     UART_Open(UART0, 115200);
 
-    /* Configure SPI_FLASH_PORT as a master, MSB first, 8-bit transaction, SPI Mode-0 timing, clock is 1MHz */
+     if (retval != 0)
+    {
+        printf("SYS_Init failed!\n");
+        while (1);
+    }
+
+   /* Configure SPI_FLASH_PORT as a master, MSB first, 8-bit transaction, SPI Mode-0 timing, clock is 1MHz */
     SPI_Open(SPI_FLASH_PORT, SPI_MASTER, SPI_MODE_0, 8, 1000000);
 
     /* Enable the automatic hardware slave select function. Select the SS0 pin and configure as low-active. */

@@ -16,13 +16,14 @@
 #define EEPROM_WRITE_ADDR     0xA0 /* Address of slave for write */
 uint8_t WBuf[3], RBuf[3];
 
-void SYS_Init(void)
+int32_t SYS_Init(void)
 {
     /* Unlock protected registers */
     SYS_UnlockReg();
 
     /* Read User Config to select internal high speed RC */
-    SystemInit();
+    if (SystemInit() < 0)
+        return -1;
 
     /*---------------------------------------------------------------------------------------------------------*/
     /* Init System Clock                                                                                       */
@@ -61,6 +62,7 @@ void SYS_Init(void)
 
     /* Lock protected registers */
     SYS_LockReg();
+    return 0;
 }
 
 void ACK_Polling(void)
@@ -167,13 +169,19 @@ void EEPROM_Read(void)
 int main(void)
 {
     uint32_t i;
+    int32_t retval;
 
     /* Init System, IP clock and multi-function I/O */
-    SYS_Init();
+    retval = SYS_Init();
 
     /* Configure UART0 and set UART0 baud rate */
     UART_Open(UART0, 115200);
 
+    if (retval != 0)
+    {
+        printf("SYS_Init failed!\n");
+        while (1);
+    }
     printf("+-------------------------------------------------------+\n");
     printf("|        I2C FIFO Sample Code with EEPROM 24LC64        |\n");
     printf("+-------------------------------------------------------+\n");

@@ -142,13 +142,14 @@ void I2C_MasterTx(uint32_t u32Status)
     }
 }
 
-void SYS_Init(void)
+int32_t SYS_Init(void)
 {
     /* Unlock protected registers */
     SYS_UnlockReg();
 
     /* Read User Config to select internal high speed RC */
-    SystemInit();
+    if (SystemInit() < 0)
+        return -1;
 
     /*---------------------------------------------------------------------------------------------------------*/
     /* Init System Clock                                                                                       */
@@ -186,6 +187,7 @@ void SYS_Init(void)
 
     /* Update System Core Clock */
     SystemCoreClockUpdate();
+    return 0;
 }
 
 void UART_Init(void)
@@ -222,12 +224,19 @@ void I2C_Init(void)
 int32_t main (void)
 {
     uint32_t i;
+    int32_t retval;
 
     /* Init System, IP clock and multi-function I/O */
-    SYS_Init();
+    retval = SYS_Init();
 
     /* Init UART for printf */
     UART_Init();
+
+    if (retval != 0)
+    {
+        printf("SYS_Init failed!\n");
+        while (1);
+    }
 
     /*
         This sample code sets I2C bus clock to 100kHz. Then, accesses EEPROM 24LC64 with Byte Write

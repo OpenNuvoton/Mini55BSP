@@ -22,13 +22,14 @@ typedef void (FUNC_PTR)(void);
 FUNC_PTR    *func;
 uint32_t    sp;
 
-void SYS_Init(void)
+int32_t SYS_Init(void)
 {
     /* Unlock protected registers */
     SYS_UnlockReg();
 
     /*  Read User Config to select internal high speed RC  */
-    SystemInit();
+    if (SystemInit() < 0)
+        return -1;
 
     /* Set P5 multi-function pins for crystal output/input */
     SYS->P5_MFP &= ~(SYS_MFP_P50_Msk | SYS_MFP_P51_Msk);
@@ -66,6 +67,7 @@ void SYS_Init(void)
 
     /* Lock protected registers */
     SYS_LockReg();
+    return 0;
 }
 
 void UART_Init()
@@ -104,9 +106,17 @@ __asm __set_SP(uint32_t _sp)
 int main()
 {
     FUNC_PTR    *func;
+    int32_t retval;
+    uint32_t  tout = (SystemCoreClock/10)*2;    /* Write command time-out 100 ms */
 
-    SYS_Init();
+    retval = SYS_Init();
     UART_Init();
+
+    if (retval != 0)
+    {
+        print_msg("SYS_Init failed!\n");
+        while (1);
+    }
 
     SYS_UnlockReg();
 
@@ -137,7 +147,16 @@ int main()
     FMC->ISPCMD = FMC_ISPCMD_VECMAP;
     FMC->ISPADDR = FMC_APROM_BASE;
     FMC->ISPTRG = FMC_ISPTRG_ISPGO_Msk;
-    while (FMC->ISPTRG & FMC_ISPTRG_ISPGO_Msk) ;
+    while (1)
+    {
+        if (!(FMC->ISPTRG & FMC_ISPTRG_ISPGO_Msk))             /* Waiting for ISP Done */
+            break;
+        if (tout-- <= 0)
+        {
+            print_msg("timeout!\n");
+            while(1);
+        }
+    }
 
     func();
 

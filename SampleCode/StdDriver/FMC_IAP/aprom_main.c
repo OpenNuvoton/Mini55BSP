@@ -162,6 +162,7 @@ int main()
     uint8_t     u8Item;
     uint32_t    u32Data;
     FUNC_PTR    *func;
+    uint32_t  tout = (SystemCoreClock/10)*2;    /* Write command time-out 100 ms */
 
     SYS_Init();
     UART_Init();
@@ -252,7 +253,16 @@ int main()
             FMC->ISPCMD = FMC_ISPCMD_VECMAP;
             FMC->ISPADDR = FMC_LDROM_BASE;
             FMC->ISPTRG = FMC_ISPTRG_ISPGO_Msk;
-            while (FMC->ISPTRG & FMC_ISPTRG_ISPGO_Msk) ;
+            while (1)
+            {
+                if (!(FMC->ISPTRG & FMC_ISPTRG_ISPGO_Msk))             /* Waiting for ISP Done */
+                    break;
+                if (tout-- <= 0)
+                {
+                    printf("timeout!\n");
+                    while(1);
+                }
+            }
 
             func();
             break;

@@ -13,8 +13,10 @@
 #include <stdio.h>
 #include "Mini55Series.h"
 
-void SYS_Init(void)
+int32_t SYS_Init(void)
 {
+    uint32_t u32TimeOutCnt;
+
     /*---------------------------------------------------------------------------------------------------------*/
     /* Init System Clock                                                                                       */
     /*---------------------------------------------------------------------------------------------------------*/
@@ -28,13 +30,19 @@ void SYS_Init(void)
     }
 
     /*  Read User Config to select internal high speed RC  */
-    SystemInit();
+    if (SystemInit() < 0)
+        return -1;
 
     /* Enable HIRC */
     CLK->PWRCTL = CLK_PWRCTL_HIRCEN_Msk;
 
     /* Waiting for clock ready */
-    while(!(CLK->STATUS & CLK_STATUS_HIRCSTB_Msk));
+    u32TimeOutCnt = SystemCoreClock / 2;
+    while((CLK->STATUS & CLK_STATUS_HIRCSTB_Msk) != CLK_STATUS_HIRCSTB_Msk)
+    {
+        if(--u32TimeOutCnt == 0)
+            return -1;
+    }
 
     /* Enable IP clock */
     CLK->APBCLK = CLK_APBCLK_UART0CKEN_Msk;
@@ -51,6 +59,7 @@ void SYS_Init(void)
 
     /* Lock protected registers */
     SYS->REGLCTL = 0;
+    return 0;
 }
 
 
@@ -75,11 +84,19 @@ void HDIV_Init(void)
 /*---------------------------------------------------------------------------------------------------------*/
 int main(void)
 {
+    int32_t  retval;
+
     /* Init System, IP clock and multi-function I/O */
-    SYS_Init();
+    retval = SYS_Init();
 
     /* Init UART0 for printf */
     UART0_Init();
+
+    if (retval != 0)
+    {
+        printf("SYS_Init failed!\n");
+        while (1);
+    }
 
     /* Init Divider */
     HDIV_Init();

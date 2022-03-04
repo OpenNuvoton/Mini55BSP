@@ -18,18 +18,26 @@
 uint32_t g_au32SourceData[TEST_COUNT];
 uint32_t g_au32DestinationData[TEST_COUNT];
 
-void SYS_Init(void);
+int32_t SYS_Init(void);
 void UART_Init(void);
 void SPI_Init(void);
 void SpiLoopbackTest(void);
 
 int main(void)
 {
+    int32_t retval;
+
     /* Init System, IP clock and multi-function I/O */
-    SYS_Init();
+    retval = SYS_Init();
 
     /* Init UART for printf */
     UART_Init();
+
+    if (retval != 0)
+    {
+        printf("SYS_Init failed!\n");
+        while (1);
+    }
 
     /* Init SPI */
     SPI_Init();
@@ -47,13 +55,14 @@ int main(void)
     while(1);
 }
 
-void SYS_Init(void)
+int32_t SYS_Init(void)
 {
     /* Unlock protected registers */
     SYS_UnlockReg();
 
     /* Read User Config to select internal high speed RC */
-    SystemInit();
+    if (SystemInit() < 0)
+        return -1;
 
     /*---------------------------------------------------------------------------------------------------------*/
     /* Init System Clock                                                                                       */
@@ -87,6 +96,7 @@ void SYS_Init(void)
 
     /* Update System Core Clock */
     SystemCoreClockUpdate();
+    return 0;
 }
 
 void UART_Init(void)
