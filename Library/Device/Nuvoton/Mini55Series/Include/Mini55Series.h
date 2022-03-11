@@ -8,7 +8,7 @@
  *           bits definitions and memory mapping for NuMicro Mini55 series MCU.
  *
  * @note
- * Copyright (C) 2014~2018 Nuvoton Technology Corp. All rights reserved.
+ * Copyright (C) 2022 Nuvoton Technology Corp. All rights reserved.
  *****************************************************************************/
 /**
    \mainpage NuMicro Mini55 Driver Reference Guide
@@ -47,7 +47,7 @@
    *
    * <b>Copyright Notice</b>
    *
-   * Copyright (C) 2018-2020 Nuvoton Technology Corp. All rights reserved.
+   * Copyright (C) 2022 Nuvoton Technology Corp. All rights reserved.
    */
 
 #ifndef __MINI55SERIES_H__
