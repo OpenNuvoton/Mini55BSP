@@ -19,7 +19,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="../../M0Banner_v2.jpg"/></td>
   <td id="projectalign">
-   <div id="projectname">MINI55_BSP<span id="projectnumber">&#160;V3.01.003</span>
+   <div id="projectname">MINI55_BSP<span id="projectnumber">&#160;V3.02.004</span>
    </div>
    <div id="projectbrief">The Board Support Package for Mini55 Series MCU</div>
   </td>
@@ -79,8 +79,8 @@ $(function() {
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment">/* Global variables                                                                                        */</span></div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="comment">/*---------------------------------------------------------------------------------------------------------*/</span></div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="preprocessor">#if !(defined(__ICCARM__) &amp;&amp; (__VER__ &gt;= 6010000))</span></div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="../../da/d3e/struct_____f_i_l_e.html#ac65d6afc3b2c74e74d56195829a1626f">   43</a></span><span class="keyword">struct </span><a class="code hl_struct" href="../../da/d3e/struct_____f_i_l_e.html">__FILE</a> { <span class="keywordtype">int</span> <a class="code hl_variable" href="../../da/d3e/struct_____f_i_l_e.html#ac65d6afc3b2c74e74d56195829a1626f">handle</a>; <span class="comment">/* Add whatever you need here */</span> };</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="preprocessor">#if (defined(__ARMCC_VERSION) &amp;&amp; (__ARMCC_VERSION &lt; 6040000)) || (defined(__ICCARM__) &amp;&amp; (__VER__ &gt;= 8000000))</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="keyword">struct </span>__FILE { <span class="keywordtype">int</span> handle; <span class="comment">/* Add whatever you need here */</span> };</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="preprocessor">#endif</span></div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="../../d3/d3d/retarget_8c.html#ac1f65ebf7d6f28fb49530ee0095306cb">   45</a></span>FILE <a class="code hl_variable" href="../../d3/d3d/retarget_8c.html#ac1f65ebf7d6f28fb49530ee0095306cb">__stdout</a>;</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="../../d3/d3d/retarget_8c.html#abb2a819d3c88269eba04ea62d759bef5">   46</a></span>FILE <a class="code hl_variable" href="../../d3/d3d/retarget_8c.html#abb2a819d3c88269eba04ea62d759bef5">__stdin</a>;</div>
@@ -528,12 +528,10 @@ $(function() {
 <div class="ttc" id="aretarget_8c_html_ad7725bd9f76ca4bbdfdeb470ac223138"><div class="ttname"><a href="../../d3/d3d/retarget_8c.html#ad7725bd9f76ca4bbdfdeb470ac223138">DEBUG_PORT</a></div><div class="ttdeci">#define DEBUG_PORT</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d3d/retarget_8c_source.html#l00026">retarget.c:26</a></div></div>
 <div class="ttc" id="aretarget_8c_html_af143031eca5a9fd207cf5626f932d609"><div class="ttname"><a href="../../d3/d3d/retarget_8c.html#af143031eca5a9fd207cf5626f932d609">stackDump</a></div><div class="ttdeci">void stackDump(uint32_t stack[])</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d3d/retarget_8c_source.html#l00050">retarget.c:50</a></div></div>
 <div class="ttc" id="asemihosting_8h_html_aacce635d68067370c70caa2381ea1040"><div class="ttname"><a href="../../d5/d32/semihosting_8h.html#aacce635d68067370c70caa2381ea1040">value</a></div><div class="ttdeci">return value</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d32/semihosting_8h_source.html#l00098">semihosting.h:98</a></div></div>
-<div class="ttc" id="astruct_____f_i_l_e_html"><div class="ttname"><a href="../../da/d3e/struct_____f_i_l_e.html">__FILE</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d3d/retarget_8c_source.html#l00043">retarget.c:43</a></div></div>
-<div class="ttc" id="astruct_____f_i_l_e_html_ac65d6afc3b2c74e74d56195829a1626f"><div class="ttname"><a href="../../da/d3e/struct_____f_i_l_e.html#ac65d6afc3b2c74e74d56195829a1626f">__FILE::handle</a></div><div class="ttdeci">int handle</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d3d/retarget_8c_source.html#l00043">retarget.c:43</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 11 2022 14:00:06 for MINI55_BSP by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3
+Generated on Wed Mar 1 2023 10:34:02 for MINI55_BSP by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3
 </small></address>
 </body>
 </html>

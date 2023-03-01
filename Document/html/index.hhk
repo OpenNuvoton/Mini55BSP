@@ -335,9 +335,9 @@
   <LI><OBJECT type="text/sitemap"><param name="Local" value="df/dea/group___m_i_n_i55___c_l_k___e_x_p_o_r_t_e_d___c_o_n_s_t_a_n_t_s.html"><param name="Name" value="CLK Exported Constants"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="de/d48/group___m_i_n_i55___c_l_k___e_x_p_o_r_t_e_d___f_u_n_c_t_i_o_n_s.html"><param name="Name" value="CLK Exported Functions"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="dd/d47/group___mini55___p_e_r_i_p_h_e_r_a_l___d_e_c_l_a_r_a_t_i_o_n.html#ga4b355291fe6b8ba8e167ab0faa862e45"><param name="Name" value="CLK"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#gab3f4848afe39a380101231bb0fd35d4d"><param name="Name" value="CLKDIV"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#ga42ae778f266a41953e0d625b77c8f76f"><param name="Name" value="CLKDIV"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#gab3f4848afe39a380101231bb0fd35d4d"><param name="Name" value="Mini55_legacy_Constants"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#ga42ae778f266a41953e0d625b77c8f76f"><param name="Name" value="Mini55_legacy_Constants"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#gabc4c6580a6e99fbd6faf507f730c2ec3"><param name="Name" value="CLKDIV"></OBJECT>
   <UL>
@@ -347,9 +347,9 @@
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#ga6ea1e761f8c180884bc051c73db22e13"><param name="Name" value="Mini55_legacy_Constants"></OBJECT>
   </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#ga42ae778f266a41953e0d625b77c8f76f"><param name="Name" value="CLKDIV"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#gab3f4848afe39a380101231bb0fd35d4d"><param name="Name" value="CLKDIV"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#ga42ae778f266a41953e0d625b77c8f76f"><param name="Name" value="Mini55_legacy_Constants"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#gab3f4848afe39a380101231bb0fd35d4d"><param name="Name" value="Mini55_legacy_Constants"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#ga9d505afae945a248261c38c266a4deab"><param name="Name" value="CLKOCTL"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#gac2c901e81cfb5c40d77de799ea903246"><param name="Name" value="CLKPSC"></OBJECT>
@@ -524,33 +524,33 @@
   <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#ga0157441b8a882400592a26a19dd6ebd8"><param name="Name" value="CMPDAT"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#gaf2463dd197cada9380f6dcb2fff23f2b"><param name="Name" value="CNT"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#ga709765ae65421d9d51aa7539684197ac"><param name="Name" value="CTL1"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#ga069fd6acdea1842f24bba35267ff3ea5"><param name="Name" value="CTL"></OBJECT>
-  <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#ga069fd6acdea1842f24bba35267ff3ea5"><param name="Name" value="Mini55_legacy_Constants"></OBJECT>
-  </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#gaee8e65be2579f6ca7675e9a63886ab42"><param name="Name" value="CTL"></OBJECT>
-  <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#gaee8e65be2579f6ca7675e9a63886ab42"><param name="Name" value="Mini55_legacy_Constants"></OBJECT>
-  </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#ga1c920595c6586bec644d46e2c1350b1c"><param name="Name" value="CTL"></OBJECT>
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#ga1c920595c6586bec644d46e2c1350b1c"><param name="Name" value="Mini55_legacy_Constants"></OBJECT>
   </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#ga0a5218f3d6ce38a982289ba890e94ebc"><param name="Name" value="CTL"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#gaa8a989c17bfe13704d599376218c9d93"><param name="Name" value="CTL"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#ga0a5218f3d6ce38a982289ba890e94ebc"><param name="Name" value="Mini55_legacy_Constants"></OBJECT>
-  </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#gabb8d9df4695b742a04b52a7a64594322"><param name="Name" value="CTL"></OBJECT>
-  <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#gabb8d9df4695b742a04b52a7a64594322"><param name="Name" value="Mini55_legacy_Constants"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#gaa8a989c17bfe13704d599376218c9d93"><param name="Name" value="Mini55_legacy_Constants"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#gabeaddca0794806b689834bdbeeaca072"><param name="Name" value="CTL"></OBJECT>
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#gabeaddca0794806b689834bdbeeaca072"><param name="Name" value="Mini55_legacy_Constants"></OBJECT>
   </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#gaa8a989c17bfe13704d599376218c9d93"><param name="Name" value="CTL"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#ga0a5218f3d6ce38a982289ba890e94ebc"><param name="Name" value="CTL"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#gaa8a989c17bfe13704d599376218c9d93"><param name="Name" value="Mini55_legacy_Constants"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#ga0a5218f3d6ce38a982289ba890e94ebc"><param name="Name" value="Mini55_legacy_Constants"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#ga069fd6acdea1842f24bba35267ff3ea5"><param name="Name" value="CTL"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#ga069fd6acdea1842f24bba35267ff3ea5"><param name="Name" value="Mini55_legacy_Constants"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#gabb8d9df4695b742a04b52a7a64594322"><param name="Name" value="CTL"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#gabb8d9df4695b742a04b52a7a64594322"><param name="Name" value="Mini55_legacy_Constants"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#gaee8e65be2579f6ca7675e9a63886ab42"><param name="Name" value="CTL"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#gaee8e65be2579f6ca7675e9a63886ab42"><param name="Name" value="Mini55_legacy_Constants"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="dc/d65/system___mini55_series_8c.html#a63bedf89ae7fbb102b8653aca20d3a14"><param name="Name" value="CyclesPerUs"></OBJECT>
   <UL>
@@ -560,6 +560,10 @@
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="dc/d47/system___mini55_series_8h.html#a63bedf89ae7fbb102b8653aca20d3a14"><param name="Name" value="system_Mini55Series.h"></OBJECT>
   </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#ga24820b94bbd2706f85d2bbed473fbd2c"><param name="Name" value="DAT"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#ga24820b94bbd2706f85d2bbed473fbd2c"><param name="Name" value="Mini55_legacy_Constants"></OBJECT>
+  </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#ga55dff1581fa36f47d3b1f629dc9f0695"><param name="Name" value="DAT"></OBJECT>
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#ga55dff1581fa36f47d3b1f629dc9f0695"><param name="Name" value="Mini55_legacy_Constants"></OBJECT>
@@ -567,10 +571,6 @@
   <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#ga158d79b640465c2687994504ceb19c42"><param name="Name" value="DAT"></OBJECT>
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#ga158d79b640465c2687994504ceb19c42"><param name="Name" value="Mini55_legacy_Constants"></OBJECT>
-  </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#ga24820b94bbd2706f85d2bbed473fbd2c"><param name="Name" value="DAT"></OBJECT>
-  <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#ga24820b94bbd2706f85d2bbed473fbd2c"><param name="Name" value="Mini55_legacy_Constants"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#ga210328cdbb34226b4526f2a302bdf19e"><param name="Name" value="DATMSK"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#ga85770c088c53797e0c7a2c04aff5aa04"><param name="Name" value="DBCTL"></OBJECT>
@@ -1053,10 +1053,6 @@
   <LI><OBJECT type="text/sitemap"><param name="Local" value="df/dfd/group___m_i_n_i55___i2_c___e_x_p_o_r_t_e_d___f_u_n_c_t_i_o_n_s.html#ga29b31f62a804d8127bc8d480f5140856"><param name="Name" value="I2C_Trigger"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="df/dfd/group___m_i_n_i55___i2_c___e_x_p_o_r_t_e_d___f_u_n_c_t_i_o_n_s.html#ga6d00fbf5c179f28e8d925cbef643da27"><param name="Name" value="I2C_WAIT_READY"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#gaf244c7a0518aff801a61660751055701"><param name="Name" value="IFA"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#ga2954225147cc4d89f9431fa5aeec33e2"><param name="Name" value="INTEN"></OBJECT>
-  <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#ga2954225147cc4d89f9431fa5aeec33e2"><param name="Name" value="Mini55_legacy_Constants"></OBJECT>
-  </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#ga0418d4cfbebf1037e83200b1d2e91ad3"><param name="Name" value="INTEN"></OBJECT>
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#ga0418d4cfbebf1037e83200b1d2e91ad3"><param name="Name" value="Mini55_legacy_Constants"></OBJECT>
@@ -1064,6 +1060,10 @@
   <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#ga1fbc063a076e84e9b8f17ebcee04879e"><param name="Name" value="INTEN"></OBJECT>
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#ga1fbc063a076e84e9b8f17ebcee04879e"><param name="Name" value="Mini55_legacy_Constants"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#ga2954225147cc4d89f9431fa5aeec33e2"><param name="Name" value="INTEN"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#ga2954225147cc4d89f9431fa5aeec33e2"><param name="Name" value="Mini55_legacy_Constants"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="dd/d47/group___mini55___p_e_r_i_p_h_e_r_a_l___d_e_c_l_a_r_a_t_i_o_n.html#ga71e19ac3883e6cdbc2a19126e1b590ab"><param name="Name" value="INTR"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="da/d6f/group___mini55___p_e_r_i_p_h_e_r_a_l___m_e_m___m_a_p.html#gaf5e455fe21c3e30300bdea0eeed7241e"><param name="Name" value="INTR_BASE"></OBJECT>
@@ -1073,13 +1073,13 @@
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#gabfc9a19e31d66f608b9008c8c0f31eb8"><param name="Name" value="Mini55_legacy_Constants"></OBJECT>
   </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#gae7e9084b9945be30518cb97148eb78ea"><param name="Name" value="INTSTS"></OBJECT>
-  <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#gae7e9084b9945be30518cb97148eb78ea"><param name="Name" value="Mini55_legacy_Constants"></OBJECT>
-  </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#gac535addafa0eb3c00a1fba2f4d845451"><param name="Name" value="INTSTS"></OBJECT>
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#gac535addafa0eb3c00a1fba2f4d845451"><param name="Name" value="Mini55_legacy_Constants"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#gae7e9084b9945be30518cb97148eb78ea"><param name="Name" value="INTSTS"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#gae7e9084b9945be30518cb97148eb78ea"><param name="Name" value="Mini55_legacy_Constants"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#ga2e1d37bb184d4c29c053078c22abec62"><param name="Name" value="INTTYPE"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="da/d3d/_mini55_series_8h.html#a4851ec7e5994a7deab47372714c0e01d"><param name="Name" value="INT_IRQ0SRC_INT_SRC_Msk"></OBJECT>
@@ -11132,11 +11132,7 @@
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html"><param name="Name" value="Mini55_legacy_Constants"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#ga6ea1e761f8c180884bc051c73db22e13"><param name="Name" value="CLKDIV"></OBJECT>
-  </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html"><param name="Name" value="Mini55_legacy_Constants"></OBJECT>
-  <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#gabc4c6580a6e99fbd6faf507f730c2ec3"><param name="Name" value="CLKDIV"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#gab3f4848afe39a380101231bb0fd35d4d"><param name="Name" value="CLKDIV"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html"><param name="Name" value="Mini55_legacy_Constants"></OBJECT>
   <UL>
@@ -11144,7 +11140,11 @@
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html"><param name="Name" value="Mini55_legacy_Constants"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#gab3f4848afe39a380101231bb0fd35d4d"><param name="Name" value="CLKDIV"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#gabc4c6580a6e99fbd6faf507f730c2ec3"><param name="Name" value="CLKDIV"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html"><param name="Name" value="Mini55_legacy_Constants"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#ga6ea1e761f8c180884bc051c73db22e13"><param name="Name" value="CLKDIV"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html"><param name="Name" value="Mini55_legacy_Constants"></OBJECT>
   <UL>
@@ -11184,7 +11184,7 @@
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html"><param name="Name" value="Mini55_legacy_Constants"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#gaee8e65be2579f6ca7675e9a63886ab42"><param name="Name" value="CTL"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#ga1c920595c6586bec644d46e2c1350b1c"><param name="Name" value="CTL"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html"><param name="Name" value="Mini55_legacy_Constants"></OBJECT>
   <UL>
@@ -11192,7 +11192,7 @@
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html"><param name="Name" value="Mini55_legacy_Constants"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#gaa8a989c17bfe13704d599376218c9d93"><param name="Name" value="CTL"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#gaee8e65be2579f6ca7675e9a63886ab42"><param name="Name" value="CTL"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html"><param name="Name" value="Mini55_legacy_Constants"></OBJECT>
   <UL>
@@ -11208,7 +11208,7 @@
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html"><param name="Name" value="Mini55_legacy_Constants"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#ga1c920595c6586bec644d46e2c1350b1c"><param name="Name" value="CTL"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#gaa8a989c17bfe13704d599376218c9d93"><param name="Name" value="CTL"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html"><param name="Name" value="Mini55_legacy_Constants"></OBJECT>
   <UL>
@@ -11220,11 +11220,11 @@
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html"><param name="Name" value="Mini55_legacy_Constants"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#ga24820b94bbd2706f85d2bbed473fbd2c"><param name="Name" value="DAT"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#ga55dff1581fa36f47d3b1f629dc9f0695"><param name="Name" value="DAT"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html"><param name="Name" value="Mini55_legacy_Constants"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#ga55dff1581fa36f47d3b1f629dc9f0695"><param name="Name" value="DAT"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#ga24820b94bbd2706f85d2bbed473fbd2c"><param name="Name" value="DAT"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html"><param name="Name" value="Mini55_legacy_Constants"></OBJECT>
   <UL>
@@ -11344,7 +11344,7 @@
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html"><param name="Name" value="Mini55_legacy_Constants"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#gae7e9084b9945be30518cb97148eb78ea"><param name="Name" value="INTSTS"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#gac535addafa0eb3c00a1fba2f4d845451"><param name="Name" value="INTSTS"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html"><param name="Name" value="Mini55_legacy_Constants"></OBJECT>
   <UL>
@@ -11352,7 +11352,7 @@
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html"><param name="Name" value="Mini55_legacy_Constants"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#gac535addafa0eb3c00a1fba2f4d845451"><param name="Name" value="INTSTS"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#gae7e9084b9945be30518cb97148eb78ea"><param name="Name" value="INTSTS"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html"><param name="Name" value="Mini55_legacy_Constants"></OBJECT>
   <UL>
@@ -11608,19 +11608,7 @@
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html"><param name="Name" value="Mini55_legacy_Constants"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#gab877af9a3ca34e64cb0d9d7b3df97e1b"><param name="Name" value="STATUS"></OBJECT>
-  </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html"><param name="Name" value="Mini55_legacy_Constants"></OBJECT>
-  <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#ga6c6fa770a24a0372013c38701a9a4e4b"><param name="Name" value="STATUS"></OBJECT>
-  </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html"><param name="Name" value="Mini55_legacy_Constants"></OBJECT>
-  <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#ga4afe2cb0c518f0dff54c05986b987f33"><param name="Name" value="STATUS"></OBJECT>
-  </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html"><param name="Name" value="Mini55_legacy_Constants"></OBJECT>
-  <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#ga8920dbbf2ea9a13672cd2811d4b2e84b"><param name="Name" value="STATUS"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#ga000cdb41ff688b3d840f8f3830a6298c"><param name="Name" value="STATUS"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html"><param name="Name" value="Mini55_legacy_Constants"></OBJECT>
   <UL>
@@ -11628,7 +11616,19 @@
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html"><param name="Name" value="Mini55_legacy_Constants"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#ga000cdb41ff688b3d840f8f3830a6298c"><param name="Name" value="STATUS"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#ga4afe2cb0c518f0dff54c05986b987f33"><param name="Name" value="STATUS"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html"><param name="Name" value="Mini55_legacy_Constants"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#gab877af9a3ca34e64cb0d9d7b3df97e1b"><param name="Name" value="STATUS"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html"><param name="Name" value="Mini55_legacy_Constants"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#ga8920dbbf2ea9a13672cd2811d4b2e84b"><param name="Name" value="STATUS"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html"><param name="Name" value="Mini55_legacy_Constants"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#ga6c6fa770a24a0372013c38701a9a4e4b"><param name="Name" value="STATUS"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html"><param name="Name" value="Mini55_legacy_Constants"></OBJECT>
   <UL>
@@ -12472,21 +12472,13 @@
   <LI><OBJECT type="text/sitemap"><param name="Local" value="da/d6f/group___mini55___p_e_r_i_p_h_e_r_a_l___m_e_m___m_a_p.html#ga05e8f3d2e5868754a7cd88614955aecc"><param name="Name" value="SRAM_BASE"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#gab048babf359e75b9245fda37e24f5e8f"><param name="Name" value="SSCTL"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#ga6c9030c603fea9963d088d0d20de4c1a"><param name="Name" value="STATUS1"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#ga6c6fa770a24a0372013c38701a9a4e4b"><param name="Name" value="STATUS"></OBJECT>
-  <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#ga6c6fa770a24a0372013c38701a9a4e4b"><param name="Name" value="Mini55_legacy_Constants"></OBJECT>
-  </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#ga000cdb41ff688b3d840f8f3830a6298c"><param name="Name" value="STATUS"></OBJECT>
-  <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#ga000cdb41ff688b3d840f8f3830a6298c"><param name="Name" value="Mini55_legacy_Constants"></OBJECT>
-  </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#ga8920dbbf2ea9a13672cd2811d4b2e84b"><param name="Name" value="STATUS"></OBJECT>
-  <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#ga8920dbbf2ea9a13672cd2811d4b2e84b"><param name="Name" value="Mini55_legacy_Constants"></OBJECT>
-  </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#gab877af9a3ca34e64cb0d9d7b3df97e1b"><param name="Name" value="STATUS"></OBJECT>
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#gab877af9a3ca34e64cb0d9d7b3df97e1b"><param name="Name" value="Mini55_legacy_Constants"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#ga6c6fa770a24a0372013c38701a9a4e4b"><param name="Name" value="STATUS"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#ga6c6fa770a24a0372013c38701a9a4e4b"><param name="Name" value="Mini55_legacy_Constants"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#ga45e9c068d3cc966e206bd45c9b04b074"><param name="Name" value="STATUS"></OBJECT>
   <UL>
@@ -12495,6 +12487,14 @@
   <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#ga4afe2cb0c518f0dff54c05986b987f33"><param name="Name" value="STATUS"></OBJECT>
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#ga4afe2cb0c518f0dff54c05986b987f33"><param name="Name" value="Mini55_legacy_Constants"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#ga000cdb41ff688b3d840f8f3830a6298c"><param name="Name" value="STATUS"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#ga000cdb41ff688b3d840f8f3830a6298c"><param name="Name" value="Mini55_legacy_Constants"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#ga8920dbbf2ea9a13672cd2811d4b2e84b"><param name="Name" value="STATUS"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="d0/d7e/group___mini55__legacy___constants.html#ga8920dbbf2ea9a13672cd2811d4b2e84b"><param name="Name" value="Mini55_legacy_Constants"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="d9/dec/group___m_i_n_i55___c_m_s_i_s.html#gga666eb0caeb12ec0e281415592ae89083a4ce820b3cc6cf3a796b41aadc0cf1237"><param name="Name" value="SVCall_IRQn"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="d1/d13/group___m_i_n_i55___s_y_s___driver.html"><param name="Name" value="SYS Driver"></OBJECT>
@@ -13281,11 +13281,6 @@
   <LI><OBJECT type="text/sitemap"><param name="Local" value="df/d89/group___m_i_n_i55___w_d_t___e_x_p_o_r_t_e_d___c_o_n_s_t_a_n_t_s.html#ga199a40282f99161bab7c7b9e0a3e900f"><param name="Name" value="WDT_TIMEOUT_2POW6"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="df/d89/group___m_i_n_i55___w_d_t___e_x_p_o_r_t_e_d___c_o_n_s_t_a_n_t_s.html#gabaad8360992525da5c86b267e2900c04"><param name="Name" value="WDT_TIMEOUT_2POW8"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="d9/dec/group___m_i_n_i55___c_m_s_i_s.html#ga905517438930a3f13cbc632e52990534"><param name="Name" value="__CM0_REV"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="da/d3e/struct_____f_i_l_e.html"><param name="Name" value="__FILE"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="da/d3e/struct_____f_i_l_e.html"><param name="Name" value="__FILE"></OBJECT>
-  <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="da/d3e/struct_____f_i_l_e.html#ac65d6afc3b2c74e74d56195829a1626f"><param name="Name" value="handle"></OBJECT>
-  </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="d9/dec/group___m_i_n_i55___c_m_s_i_s.html#gac1ba8a48ca926bddc88be9bfd7d42641"><param name="Name" value="__FPU_PRESENT"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="dc/d65/system___mini55_series_8c.html#a46c6d2508862c4fac7c7f45e873f22af"><param name="Name" value="__HSI"></OBJECT>
   <UL>
@@ -13353,7 +13348,6 @@
   <LI><OBJECT type="text/sitemap"><param name="Local" value="d3/d3d/retarget_8c.html#a2c4fad5f95f4c5242c3ea25d791df6e5"><param name="Name" value="fgetc"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="d3/d3d/retarget_8c.html#abac7707b6be5733e890091048fcb99a2"><param name="Name" value="fputc"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="dc/d65/system___mini55_series_8c.html#adcbd12125e191e43b961f00b01d2aaf1"><param name="Name" value="gau32HIRCTbl"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="da/d3e/struct_____f_i_l_e.html#ac65d6afc3b2c74e74d56195829a1626f"><param name="Name" value="handle"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="d5/d1f/group___mini55___i_o___r_o_u_t_i_n_e.html#gad50a5a7ee7c2900e8d88180d4dfdeaea"><param name="Name" value="inp16"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="d5/d1f/group___mini55___i_o___r_o_u_t_i_n_e.html#ga9165d95e45927e33912b3310f3153419"><param name="Name" value="inp32"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="d5/d1f/group___mini55___i_o___r_o_u_t_i_n_e.html#ga9bb51593ea4ba3818c07d34fbbe1de6b"><param name="Name" value="inp8"></OBJECT>
