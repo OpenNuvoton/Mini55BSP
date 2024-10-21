@@ -311,7 +311,7 @@ void SPI_Init(void)
     SPI->SSCTL |= SPI_SS;
 
     /* Enable FIFO mode and configure threshold level to 2. */
-    SPI->FIFOCTL = (SPI->FIFOCTL & ~(SPI_FIFOCTL_TXTH_Msk | SPI_FIFOCTL_RXTH_Msk) |
+    SPI->FIFOCTL = ((SPI->FIFOCTL & ~(SPI_FIFOCTL_TXTH_Msk | SPI_FIFOCTL_RXTH_Msk)) |
                     (2 << SPI_FIFOCTL_TXTH_Pos) |
                     (2 << SPI_FIFOCTL_RXTH_Pos));
 

@@ -107,10 +107,9 @@ static int  set_IAP_boot_mode(void)
 
 
 #ifdef __ARMCC_VERSION
-__asm __set_SP(uint32_t _sp)
+void __set_SP(uint32_t _sp)
 {
-    MSR MSP, r0
-    BX lr
+    __set_MSP(_sp);
 }
 #endif
 
@@ -162,7 +161,7 @@ int main()
     uint8_t     u8Item;
     uint32_t    u32Data;
     FUNC_PTR    *func;
-    uint32_t  tout = (SystemCoreClock/10)*2;    /* Write command time-out 100 ms */
+    int32_t  tout = (SystemCoreClock/10)*2;    /* Write command time-out 100 ms */
 
     SYS_Init();
     UART_Init();

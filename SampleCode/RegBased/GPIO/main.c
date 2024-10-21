@@ -84,7 +84,7 @@ void GPIO234_IRQHandler(void)
  *
  * @return      None
  *
- * @details     The External INT0(P3.2) default IRQ, declared in startup_Mini51.s.
+ * @details     The External INT0(P3.2) default IRQ, declared in startup_Mini55.s.
  */
 void EINT0_IRQHandler(void)
 {

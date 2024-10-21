@@ -226,8 +226,8 @@ void AutoFlow_FunctionTest()
     printf("+-----------------------------------------------------------+\n\n");
 
     /* Set RTS Trigger Level */
-    UART0->MODEM = (UART0->MODEM & ~UART_MODEM_RTSACTLV_Msk     | (0x1 << UART_MODEM_RTSACTLV_Pos)); /* Set RTS is High Level Trigger */
-    UART0->FIFO = (UART0->FIFO & ~UART_FIFO_RTSTRGLV_Msk | (0x3 << UART_FIFO_RTSTRGLV_Pos)); /* set RTS Trigger Level to 14 bits */
+    UART0->MODEM = ((UART0->MODEM & ~UART_MODEM_RTSACTLV_Msk) | (0x1 << UART_MODEM_RTSACTLV_Pos)); /* Set RTS is High Level Trigger */
+    UART0->FIFO = ((UART0->FIFO & ~UART_FIFO_RTSTRGLV_Msk) | (0x3 << UART_FIFO_RTSTRGLV_Pos)); /* set RTS Trigger Level to 14 bits */
 
     /* Enable RTS and CTS auto flow control */
     UART0->INTEN |= UART_INTEN_ATORTSEN_Msk | UART_INTEN_ATOCTSEN_Msk;

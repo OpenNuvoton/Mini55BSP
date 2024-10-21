@@ -96,10 +96,9 @@ void print_msg(char *str)
 
 
 #ifdef __ARMCC_VERSION
-__asm __set_SP(uint32_t _sp)
+void __set_SP(uint32_t _sp)
 {
-    MSR MSP, r0
-    BX lr
+    __set_MSP(_sp);
 }
 #endif
 
@@ -162,5 +161,14 @@ int main()
 
     while (1);
 }
+
+/*---------------------------------------------------------------------------------------------------------*/
+/*  Empty functions for reduce code size to fit into LDROM & solve the functions are not be defined.       */
+/*---------------------------------------------------------------------------------------------------------*/
+void ProcessHardFault()
+{}
+
+void SH_Return()
+{}
 
 /*** (C) COPYRIGHT 2014 Nuvoton Technology Corp. ***/
