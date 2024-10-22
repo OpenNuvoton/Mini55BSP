@@ -19,7 +19,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="../../M0Banner_v2.jpg"/></td>
   <td id="projectalign">
-   <div id="projectname">MINI55_BSP<span id="projectnumber">&#160;V3.02.004</span>
+   <div id="projectname">MINI55_BSP<span id="projectnumber">&#160;V3.03.000</span>
    </div>
    <div id="projectbrief">The Board Support Package for Mini55 Series MCU</div>
   </td>
@@ -122,7 +122,7 @@ $(function() {
 <div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span> </div>
 <div class="line"><a id="l00149" name="l00149"></a><span class="lineno"><a class="line" href="../../d2/d9c/group___m_i_n_i55___s_p_i___e_x_p_o_r_t_e_d___f_u_n_c_t_i_o_n_s.html#ga58733a1f2730db4943ee270c5aad39ba">  149</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d2/d9c/group___m_i_n_i55___s_p_i___e_x_p_o_r_t_e_d___f_u_n_c_t_i_o_n_s.html#ga58733a1f2730db4943ee270c5aad39ba">SPI_EnableFIFO</a>(<a class="code hl_struct" href="../../d5/d95/struct_s_p_i___t.html">SPI_T</a> *spi, uint32_t u32TxThreshold, uint32_t u32RxThreshold)</div>
 <div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>{</div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    spi-&gt;<a class="code hl_variable" href="../../d0/d7e/group___mini55__legacy___constants.html#ga8ea825ffc93dccfd0ef04d389fc38e52">FIFOCTL</a> = (spi-&gt;<a class="code hl_variable" href="../../d0/d7e/group___mini55__legacy___constants.html#ga8ea825ffc93dccfd0ef04d389fc38e52">FIFOCTL</a> &amp; ~(<a class="code hl_define" href="../../da/d3d/_mini55_series_8h.html#a1fdbf9079622f45bb78d9a203a3ec8dc">SPI_FIFOCTL_TXTH_Msk</a> | <a class="code hl_define" href="../../da/d3d/_mini55_series_8h.html#aa827b682ed66e7e43c70cc43ef421263">SPI_FIFOCTL_RXTH_Msk</a>) |</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    spi-&gt;<a class="code hl_variable" href="../../d0/d7e/group___mini55__legacy___constants.html#ga8ea825ffc93dccfd0ef04d389fc38e52">FIFOCTL</a> = ((spi-&gt;<a class="code hl_variable" href="../../d0/d7e/group___mini55__legacy___constants.html#ga8ea825ffc93dccfd0ef04d389fc38e52">FIFOCTL</a> &amp; ~(<a class="code hl_define" href="../../da/d3d/_mini55_series_8h.html#a1fdbf9079622f45bb78d9a203a3ec8dc">SPI_FIFOCTL_TXTH_Msk</a> | <a class="code hl_define" href="../../da/d3d/_mini55_series_8h.html#aa827b682ed66e7e43c70cc43ef421263">SPI_FIFOCTL_RXTH_Msk</a>)) |</div>
 <div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>                    (u32TxThreshold &lt;&lt; <a class="code hl_define" href="../../da/d3d/_mini55_series_8h.html#a7a4822ea008620f87a41ae91cff38249">SPI_FIFOCTL_TXTH_Pos</a>) |</div>
 <div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>                    (u32RxThreshold &lt;&lt; <a class="code hl_define" href="../../da/d3d/_mini55_series_8h.html#a1bea6ff70bcf6c4cb5e33402998b3387">SPI_FIFOCTL_RXTH_Pos</a>));</div>
 <div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> </div>
@@ -251,7 +251,7 @@ $(function() {
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Mar 1 2023 10:34:02 for MINI55_BSP by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3
+Generated on Tue Oct 22 2024 10:40:08 for MINI55_BSP by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3
 </small></address>
 </body>
 </html>
